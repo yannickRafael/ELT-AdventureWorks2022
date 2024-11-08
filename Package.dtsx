@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{EC6B6B4D-82B7-4FB2-A3EC-8B7C854F0EB6}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{89CF141D-BB2B-4C0D-8DB5-3CF6DF2C3066}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -64,7 +64,278 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Datawarehouse Population">
       <DTS:Variables />
-      <DTS:Executables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Datawarehouse Population\Product"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{82901A44-A3FE-4C5E-820B-2DE159D2288E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Product"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Datawarehouse Population\Product\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Product]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Datawarehouse Population\Product\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[awDataWarehouse_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[awDataWarehouse_Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Datawarehouse Population\Product\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                          cachedDataType="i4"
+                          cachedName="ProductID"
+                          externalMetadataColumnId="Package\Datawarehouse Population\Product\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
+                          lineageId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
+                          dataType="i4"
+                          name="productId" />
+                        <externalMetadataColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[productName]"
+                          dataType="wstr"
+                          length="50"
+                          name="productName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Datawarehouse Population\Product\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Datawarehouse Population\Product\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Datawarehouse Population\Product\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Datawarehouse Population\Product\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Datawarehouse Population\Product\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Product]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Datawarehouse Population\Product\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[awStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[awStaging_Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          lineageId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          name="ProductID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="50"
+                          lineageId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          dataType="i4"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Name" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          dataType="i4"
+                          lineageId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          name="ProductID" />
+                        <outputColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Datawarehouse Population\Product.Paths[OLE DB Source Output]"
+                  endId="Package\Datawarehouse Population\Product\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Datawarehouse Population\Product\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Staging Area Population"
@@ -1543,11 +1814,15 @@
           Size="346,43"
           Id="Package\Staging Area Population"
           TopLeft="48,19" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\Datawarehouse Population\Product"
+          TopLeft="110,21" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="234,55"
-          Size="234,98"
+          PanelSize="336,140"
+          Size="336,183"
           Id="Package\Datawarehouse Population"
           TopLeft="70.4740259740259,155.941558441558" />
         <EdgeLayout
@@ -1556,9 +1831,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-33.5259740259741,93.9415584415584"
+              EndConnector="17.4740259740259,93.9415584415584"
               Start="0,0"
-              End="-33.5259740259741,86.4415584415584">
+              End="17.4740259740259,86.4415584415584">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1567,15 +1842,15 @@
                   <mssgle:CubicBezierSegment
                     Point1="0,42.9707792207792"
                     Point2="0,46.9707792207792"
-                    Point3="-4,46.9707792207792" />
+                    Point3="4,46.9707792207792" />
                   <mssgle:LineSegment
-                    End="-29.5259740259741,46.9707792207792" />
+                    End="13.4740259740259,46.9707792207792" />
                   <mssgle:CubicBezierSegment
-                    Point1="-29.5259740259741,46.9707792207792"
-                    Point2="-33.5259740259741,46.9707792207792"
-                    Point3="-33.5259740259741,50.9707792207792" />
+                    Point1="13.4740259740259,46.9707792207792"
+                    Point2="17.4740259740259,46.9707792207792"
+                    Point3="17.4740259740259,50.9707792207792" />
                   <mssgle:LineSegment
-                    End="-33.5259740259741,86.4415584415584" />
+                    End="17.4740259740259,86.4415584415584" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1832,6 +2107,70 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Staging Area Population\WorkOrder\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Datawarehouse Population\Product">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Datawarehouse Population\Product\OLE DB Destination"
+          TopLeft="380.5,98.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Datawarehouse Population\Product\OLE DB Source"
+          TopLeft="152.5,97.5" />
+        <EdgeLayout
+          Id="Package\Datawarehouse Population\Product.Paths[OLE DB Source Output]"
+          TopLeft="309.5,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71,0"
+              Start="0,0"
+              End="63.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datawarehouse Population\Product\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Datawarehouse Population\Product\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
