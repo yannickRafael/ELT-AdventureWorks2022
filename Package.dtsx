@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{3CFDFC46-02CF-4559-9334-86627BCD3B50}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{BA91EE93-17C0-4900-B70A-13FD49BF354E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -490,7 +490,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset"></property>
+                      name="OpenRowset">[Location]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -533,6 +533,8 @@
                   <connections>
                     <connection
                       refId="Package\Staging Area Population\Location\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[awStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[awStaging_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -543,8 +545,43 @@
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WorkOrderID]"
+                          cachedDataType="i4"
+                          cachedName="WorkOrderID"
+                          externalMetadataColumnId="Package\Staging Area Population\Location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
+                          lineageId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].Columns[WorkOrderID]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LocationID]"
+                          cachedDataType="i2"
+                          cachedName="LocationID"
+                          externalMetadataColumnId="Package\Staging Area Population\Location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                          lineageId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationID]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\Staging Area Population\Location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                      </inputColumns>
                       <externalMetadataColumns
-                        isUsed="True" />
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
+                          dataType="i4"
+                          name="WorkOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                          dataType="i2"
+                          name="LocationID" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Name" />
+                      </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
@@ -588,7 +625,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset"></property>
+                      name="OpenRowset">[dbo].[Location]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -623,6 +660,8 @@
                   <connections>
                     <connection
                       refId="Package\Staging Area Population\Location\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[AdventureWorks2022_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[AdventureWorks2022_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -630,14 +669,74 @@
                     <output
                       refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output]"
                       name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
+                          lineageId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
+                          name="WorkOrderID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationID]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                          lineageId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationID]"
+                          name="LocationID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="50"
+                          lineageId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
                       <externalMetadataColumns
-                        isUsed="True" />
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
+                          dataType="i4"
+                          name="WorkOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                          dataType="i2"
+                          name="LocationID" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Name" />
+                      </externalMetadataColumns>
                     </output>
                     <output
                       refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Error Output]"
                       isErrorOut="true"
                       name="OLE DB Source Error Output">
                       <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
+                          dataType="i4"
+                          lineageId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
+                          name="WorkOrderID" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                          dataType="i2"
+                          lineageId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                          name="LocationID" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
                         <outputColumn
                           refId="Package\Staging Area Population\Location\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -1009,33 +1108,33 @@
         <NodeLayout
           Size="121,42"
           Id="Package\Staging Area Population\Location"
-          TopLeft="87.5,240.845211581292" />
+          TopLeft="86.5,238.845211581292" />
         <EdgeLayout
           Id="Package\Staging Area Population.PrecedenceConstraints[Constraint 1]"
           TopLeft="170,206.845211581292">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-22,34"
+              EndConnector="-23,32"
               Start="0,0"
-              End="-22,26.5">
+              End="-23,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13" />
+                    End="0,12" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13"
-                    Point2="0,17"
-                    Point3="-4,17" />
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="-4,16" />
                   <mssgle:LineSegment
-                    End="-18,17" />
+                    End="-19,16" />
                   <mssgle:CubicBezierSegment
-                    Point1="-18,17"
-                    Point2="-22,17"
-                    Point3="-22,21" />
+                    Point1="-19,16"
+                    Point2="-23,16"
+                    Point3="-23,20" />
                   <mssgle:LineSegment
-                    End="-22,26.5" />
+                    End="-23,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1190,41 +1289,65 @@
     design-time-name="Package\Staging Area Population\Location">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="177,42"
           Id="Package\Staging Area Population\Location\OLE DB Destination"
-          TopLeft="305.5,83.5" />
+          TopLeft="307.5,85.5" />
         <NodeLayout
           Size="157,42"
           Id="Package\Staging Area Population\Location\OLE DB Source"
           TopLeft="34.5,82.5" />
         <EdgeLayout
           Id="Package\Staging Area Population\Location.Paths[OLE DB Source Output]"
-          TopLeft="191.5,104">
+          TopLeft="191.5,105">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="114,0"
+              EndConnector="116,0"
               Start="0,0"
-              End="106.5,0">
+              End="108.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="106.5,0" />
+                    End="108.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging Area Population\Location\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging Area Population\Location\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
