@@ -7,73 +7,61 @@
   DTS:CreatorName="DESKTOP-DB31VT5\Yannick Matimbe"
   DTS:DTSID="{83CB6BE7-87AD-445F-9AAE-A86D15AB98DB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LastModifiedProductVersion="16.0.5035.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{72666EF5-EC33-4E9A-BF79-F9106D084DEB}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{85BB370E-A8FF-4AF5-AE04-58F5C1C51759}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[AdventureWorks2022_Connection]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{FC9CFB33-B64E-4F5C-B30D-8C58BD21599F}"
+      DTS:DTSID="{B3987E2D-E96F-43D0-AF70-71F07FD7CE75}"
       DTS:ObjectName="AdventureWorks2022_Connection">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-DB31VT5;Initial Catalog=AdventureWorks2022;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{FC9CFB33-B64E-4F5C-B30D-8C58BD21599F}DESKTOP-DB31VT5.AdventureWorks2022;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-DB31VT5;Initial Catalog=AdventureWorks2022;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{B3987E2D-E96F-43D0-AF70-71F07FD7CE75}DESKTOP-GKJ6PP6.AdventureWorks2022;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[awStaging_Connection]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{78A9C189-9718-46F3-B917-8E7F6051201B}"
-      DTS:ObjectName="awStaging_Connection">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-DB31VT5;Initial Catalog=awStaging;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{78A9C189-9718-46F3-B917-8E7F6051201B}DESKTOP-DB31VT5.awStaging;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.AdventureWorks2022]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B3987E2D-E96F-43D0-AF70-71F07FD7CE75}"
-      DTS:ObjectName="DESKTOP-GKJ6PP6.AdventureWorks2022">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-GKJ6PP6;Initial Catalog=AdventureWorks2022;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{B3987E2D-E96F-43D0-AF70-71F07FD7CE75}DESKTOP-GKJ6PP6.AdventureWorks2022;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+      DTS:refId="Package.ConnectionManagers[aWDWH_Connection]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
-      DTS:ObjectName="DESKTOP-GKJ6PP6.aWDWH">
+      DTS:ObjectName="aWDWH_Connection">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-GKJ6PP6;Initial Catalog=aWDWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}DESKTOP-GKJ6PP6.aWDWH;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-DB31VT5;Initial Catalog=aWDWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}DESKTOP-GKJ6PP6.aWDWH;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+      DTS:refId="Package.ConnectionManagers[aWStaging_Connection]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{D6CF26FE-B71C-4C70-A2A8-B017075EFC4A}"
-      DTS:ObjectName="DESKTOP-GKJ6PP6.aWStaging">
+      DTS:ObjectName="aWStaging_Connection">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-GKJ6PP6;Initial Catalog=aWStaging;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{D6CF26FE-B71C-4C70-A2A8-B017075EFC4A}DESKTOP-GKJ6PP6.aWStaging;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-DB31VT5;Initial Catalog=awStaging;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{D6CF26FE-B71C-4C70-A2A8-B017075EFC4A}DESKTOP-GKJ6PP6.aWStaging;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-DB31VT5.awStaging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EDAFC10C-5FF4-4396-8FE0-E4A107051EAA}"
+      DTS:ObjectName="DESKTOP-DB31VT5.awStaging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-DB31VT5;Initial Catalog=awStaging;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{EDAFC10C-5FF4-4396-8FE0-E4A107051EAA}DESKTOP-DB31VT5.awStaging;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -163,8 +151,8 @@
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -291,8 +279,8 @@ FROM            ProductionStaging</property>
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      connectionManagerID="Package.ConnectionManagers[aWStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWStaging_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -470,8 +458,8 @@ FROM            ProductionStaging</property>
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim Produto\ProductDestination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -588,8 +576,8 @@ FROM            ProductionStaging</property>
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim Produto\ProductExtraction.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      connectionManagerID="Package.ConnectionManagers[aWStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWStaging_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -748,8 +736,8 @@ FROM            ProductionStaging</property>
                   <connections>
                     <connection
                       refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -874,8 +862,8 @@ FROM            ProductionStaging ORDER BY WorkOrderID</property>
                   <connections>
                     <connection
                       refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      connectionManagerID="Package.ConnectionManagers[aWStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWStaging_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1050,8 +1038,8 @@ FROM            ProductionStaging ORDER BY WorkOrderID</property>
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim_Tempo\TempoDestination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1224,8 +1212,8 @@ FROM            ProductionStaging order by Data</property>
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim_Tempo\TempoSource.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      connectionManagerID="Package.ConnectionManagers[aWStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWStaging_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1518,8 +1506,8 @@ FROM            ProductionStaging order by Data</property>
                   <connections>
                     <connection
                       refId="Package\Facto\FactoProducao\factProducao.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1674,8 +1662,8 @@ FROM            ProductionStaging</property>
                   <connections>
                     <connection
                       refId="Package\Facto\FactoProducao\ProducaoSource.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      connectionManagerID="Package.ConnectionManagers[aWStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWStaging_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1883,7 +1871,7 @@ FROM            ProductionStaging</property>
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[ProductionStaging]</property>
+                      name="OpenRowset">[StagingDestination]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1926,8 +1914,8 @@ FROM            ProductionStaging</property>
                   <connections>
                     <connection
                       refId="Package\Staging Area Population\StagingArea\StagingDestination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      connectionManagerID="Package.ConnectionManagers[aWStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWStaging_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1940,112 +1928,245 @@ FROM            ProductionStaging</property>
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[LocationID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[locationId]"
                           cachedDataType="i2"
-                          cachedName="LocationID"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[LocationID]" />
+                          cachedName="locationId"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[locationId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[locationId]" />
                         <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[locationName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="locationName"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[locationName]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[locationName]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[productId]"
                           cachedDataType="i4"
-                          cachedName="ProductID"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                          cachedName="productId"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[productId]" />
                         <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[WorkOrderID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[productName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="productName"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[productName]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[productName]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[workOrderId]"
                           cachedDataType="i4"
-                          cachedName="WorkOrderID"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[WorkOrderID]" />
+                          cachedName="workOrderId"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]" />
                         <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[OperationSequence]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[operationSequence]"
                           cachedDataType="i2"
-                          cachedName="OperationSequence"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[OperationSequence]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[OperationSequence]" />
+                          cachedName="operationSequence"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[operationSequence]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[operationSequence]" />
                         <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[ScrappedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[scrappedQty]"
                           cachedDataType="i2"
-                          cachedName="ScrappedQty"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ScrappedQty]" />
+                          cachedName="scrappedQty"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrappedQty]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrappedQty]" />
                         <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[endDate]"
                           cachedDataType="dbTimeStamp"
-                          cachedName="EndDate"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[EndDate]" />
+                          cachedName="endDate"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[endDate]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[endDate]" />
                         <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[StockedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[dataId]"
                           cachedDataType="i4"
-                          cachedName="StockedQty"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[StockedQty]" />
+                          cachedName="dataId"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[dataId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[dataId]" />
                         <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[ProductName]"
-                          cachedDataType="wstr"
-                          cachedLength="50"
-                          cachedName="ProductName"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ProductName]" />
-                        <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[DataID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[stockedQty]"
                           cachedDataType="i4"
-                          cachedName="DataID"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[DataID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[DataID]" />
+                          cachedName="stockedQty"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[stockedQty]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[stockedQty]" />
                         <inputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[color]"
                           cachedDataType="wstr"
-                          cachedLength="50"
-                          cachedName="Name"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProdPhaseName]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Name]" />
+                          cachedLength="15"
+                          cachedName="color"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[color]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[makeFlag]"
+                          cachedDataType="bool"
+                          cachedName="makeFlag"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[makeFlag]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[makeFlag]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[listPrice]"
+                          cachedDataType="cy"
+                          cachedName="listPrice"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[listPrice]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[listPrice]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[size]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="size"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[size]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[weight]"
+                          cachedDataType="numeric"
+                          cachedName="weight"
+                          cachedPrecision="8"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[weight]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[weight]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[sizeUnitMeasureCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="sizeUnitMeasureCode"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[sizeUnitMeasureCode]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[sizeUnitMeasureCode]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[weightUnitMeasureCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="weightUnitMeasureCode"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[weightUnitMeasureCode]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[weightUnitMeasureCode]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[daysToManufacture]"
+                          cachedDataType="i4"
+                          cachedName="daysToManufacture"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[daysToManufacture]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[daysToManufacture]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[productLine]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="productLine"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[productLine]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[productLine]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[class]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="class"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[class]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[class]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[style]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="style"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[style]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[style]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[locationId]"
                           dataType="i2"
-                          name="LocationID" />
+                          name="locationId" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[locationName]"
+                          dataType="wstr"
+                          length="50"
+                          name="locationName" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
                           dataType="i4"
-                          name="ProductID" />
+                          name="productId" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[productName]"
+                          dataType="wstr"
+                          length="50"
+                          name="productName" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
                           dataType="i4"
-                          name="WorkOrderID" />
+                          name="workOrderId" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[OperationSequence]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[operationSequence]"
                           dataType="i2"
-                          name="OperationSequence" />
+                          name="operationSequence" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrappedQty]"
                           dataType="i2"
-                          name="ScrappedQty" />
+                          name="scrappedQty" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[endDate]"
                           dataType="dbTimeStamp"
-                          name="EndDate" />
+                          name="endDate" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[dataId]"
                           dataType="i4"
-                          name="StockedQty" />
+                          name="dataId" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[stockedQty]"
+                          dataType="i4"
+                          name="stockedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                          dataType="wstr"
+                          length="15"
+                          name="color" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[makeFlag]"
+                          dataType="bool"
+                          name="makeFlag" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[listPrice]"
+                          dataType="cy"
+                          name="listPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                          dataType="wstr"
+                          length="5"
+                          name="size" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[weight]"
+                          dataType="numeric"
+                          name="weight"
+                          precision="8"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[sizeUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="sizeUnitMeasureCode" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[weightUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="weightUnitMeasureCode" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[daysToManufacture]"
+                          dataType="i4"
+                          name="daysToManufacture" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[productLine]"
+                          dataType="wstr"
+                          length="2"
+                          name="productLine" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[class]"
+                          dataType="wstr"
+                          length="2"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[style]"
+                          dataType="wstr"
+                          length="2"
+                          name="style" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                           dataType="wstr"
                           length="50"
-                          name="ProductName" />
-                        <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProdPhaseName]"
-                          dataType="wstr"
-                          length="50"
-                          name="ProdPhaseName" />
-                        <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[DataID]"
-                          dataType="i4"
-                          name="DataID" />
+                          name="Name" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2099,14 +2220,21 @@ FROM            ProductionStaging</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        Production.Location.LocationID, Production.Location.Name, Production.Product.ProductID, Production.Product.Name AS ProductName, Production.WorkOrder.WorkOrderID, Production.WorkOrderRouting.OperationSequence, 
-                         Production.WorkOrder.ScrappedQty, Production.WorkOrder.EndDate, 
-CONVERT(int, Production.WorkOrder.EndDate) AS DataID,
-Production.WorkOrder.StockedQty
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        Production.Location.LocationID AS locationId, Production.Location.Name AS locationName, Production.Product.ProductID AS productId, Production.Product.Name AS productName, 
+                         Production.WorkOrder.WorkOrderID AS workOrderId, Production.WorkOrderRouting.OperationSequence AS operationSequence, Production.WorkOrder.ScrappedQty AS scrappedQty, Production.WorkOrder.EndDate AS endDate, 
+                         CONVERT(int, Production.WorkOrder.EndDate) AS dataId, Production.WorkOrder.StockedQty AS stockedQty, Production.Product.Color AS color, Production.Product.MakeFlag AS makeFlag, Production.Product.ListPrice AS listPrice, 
+                         Production.Product.[Size] AS [size], Production.Product.Weight AS weight, Production.Product.SizeUnitMeasureCode AS sizeUnitMeasureCode, Production.Product.WeightUnitMeasureCode AS weightUnitMeasureCode, 
+                         Production.Product.DaysToManufacture AS daysToManufacture, Production.Product.ProductLine AS productLine, Production.Product.Class AS class, Production.Product.Style AS style
 FROM            Production.Product INNER JOIN
                          Production.WorkOrder ON Production.Product.ProductID = Production.WorkOrder.ProductID INNER JOIN
                          Production.WorkOrderRouting ON Production.WorkOrder.WorkOrderID = Production.WorkOrderRouting.WorkOrderID INNER JOIN
-                         Production.Location ON Production.WorkOrderRouting.LocationID = Production.Location.LocationID</property>
+                         Production.Location ON Production.WorkOrderRouting.LocationID = Production.Location.LocationID
+WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Location.Name IS NOT NULL) AND (Production.Product.ProductID IS NOT NULL) AND (Production.Product.Name IS NOT NULL) AND 
+                         (Production.WorkOrder.WorkOrderID IS NOT NULL) AND (Production.WorkOrderRouting.OperationSequence IS NOT NULL) AND (Production.WorkOrder.ScrappedQty IS NOT NULL) AND 
+                         (Production.WorkOrder.EndDate IS NOT NULL) AND (CONVERT(int, Production.WorkOrder.EndDate) IS NOT NULL) AND (Production.WorkOrder.StockedQty IS NOT NULL) AND (Production.Product.Color IS NOT NULL) AND 
+                         (Production.Product.MakeFlag IS NOT NULL) AND (Production.Product.ListPrice IS NOT NULL) AND (Production.Product.[Size] IS NOT NULL) AND (Production.Product.Weight IS NOT NULL) AND 
+                         (Production.Product.SizeUnitMeasureCode IS NOT NULL) AND (Production.Product.WeightUnitMeasureCode IS NOT NULL) AND (Production.Product.DaysToManufacture IS NOT NULL) AND 
+                         (Production.Product.ProductLine IS NOT NULL) AND (Production.Product.Class IS NOT NULL) AND (Production.Product.Style IS NOT NULL)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2132,8 +2260,8 @@ FROM            Production.Product INNER JOIN
                   <connections>
                     <connection
                       refId="Package\Staging Area Population\StagingArea\StagingExtraction.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.AdventureWorks2022]"
-                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.AdventureWorks2022]"
+                      connectionManagerID="Package.ConnectionManagers[AdventureWorks2022_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[AdventureWorks2022_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2143,142 +2271,303 @@ FROM            Production.Product INNER JOIN
                       name="OLE DB Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[LocationID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[locationId]"
                           dataType="i2"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[LocationID]"
-                          name="LocationID"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[locationId]"
+                          name="locationId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[locationName]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationName]"
                           length="50"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Name]"
-                          name="Name"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[locationName]"
+                          name="locationName"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[productId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ProductID]"
-                          name="ProductID"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[productId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[productId]"
+                          name="productId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[productName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[productName]"
+                          length="50"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[productName]"
+                          name="productName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
-                          name="WorkOrderID"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]"
+                          name="workOrderId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[OperationSequence]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[operationSequence]"
                           dataType="i2"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[OperationSequence]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[OperationSequence]"
-                          name="OperationSequence"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[operationSequence]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[operationSequence]"
+                          name="operationSequence"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrappedQty]"
                           dataType="i2"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
-                          name="ScrappedQty"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrappedQty]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrappedQty]"
+                          name="scrappedQty"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[EndDate]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[endDate]"
                           dataType="dbTimeStamp"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[EndDate]"
-                          name="EndDate"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[endDate]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[endDate]"
+                          name="endDate"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[StockedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[dataId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[StockedQty]"
-                          name="StockedQty"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[dataId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[dataId]"
+                          name="dataId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ProductName]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[stockedQty]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[stockedQty]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[stockedQty]"
+                          name="stockedQty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[color]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
-                          length="50"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ProductName]"
-                          name="ProductName"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[color]"
+                          length="15"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[color]"
+                          name="color"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[DataID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[makeFlag]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[makeFlag]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[makeFlag]"
+                          name="makeFlag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[listPrice]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[listPrice]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[listPrice]"
+                          name="listPrice"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[size]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[size]"
+                          length="5"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[size]"
+                          name="size"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[weight]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[weight]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[weight]"
+                          name="weight"
+                          precision="8"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[sizeUnitMeasureCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[sizeUnitMeasureCode]"
+                          length="3"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[sizeUnitMeasureCode]"
+                          name="sizeUnitMeasureCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[weightUnitMeasureCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[weightUnitMeasureCode]"
+                          length="3"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[weightUnitMeasureCode]"
+                          name="weightUnitMeasureCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[daysToManufacture]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[DataID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[DataID]"
-                          name="DataID"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[daysToManufacture]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[daysToManufacture]"
+                          name="daysToManufacture"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[productLine]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[productLine]"
+                          length="2"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[productLine]"
+                          name="productLine"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[class]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          length="2"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[class]"
+                          name="class"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[style]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[style]"
+                          length="2"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[style]"
+                          name="style"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationId]"
                           dataType="i2"
-                          name="LocationID" />
+                          name="locationId" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationName]"
                           dataType="wstr"
                           length="50"
-                          name="Name" />
+                          name="locationName" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[productId]"
                           dataType="i4"
-                          name="ProductID" />
+                          name="productId" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[productName]"
+                          dataType="wstr"
+                          length="50"
+                          name="productName" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
                           dataType="i4"
-                          name="WorkOrderID" />
+                          name="workOrderId" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[OperationSequence]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[operationSequence]"
                           dataType="i2"
-                          name="OperationSequence" />
+                          name="operationSequence" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrappedQty]"
                           dataType="i2"
-                          name="ScrappedQty" />
+                          name="scrappedQty" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[endDate]"
                           dataType="dbTimeStamp"
-                          name="EndDate" />
+                          name="endDate" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[dataId]"
                           dataType="i4"
-                          name="StockedQty" />
+                          name="dataId" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[stockedQty]"
+                          dataType="i4"
+                          name="stockedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[color]"
                           dataType="wstr"
-                          length="50"
-                          name="ProductName" />
+                          length="15"
+                          name="color" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[DataID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[makeFlag]"
+                          dataType="bool"
+                          name="makeFlag" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[listPrice]"
+                          dataType="cy"
+                          name="listPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[size]"
+                          dataType="wstr"
+                          length="5"
+                          name="size" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[weight]"
+                          dataType="numeric"
+                          name="weight"
+                          precision="8"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[sizeUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="sizeUnitMeasureCode" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[weightUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="weightUnitMeasureCode" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[daysToManufacture]"
                           dataType="i4"
-                          name="DataID" />
+                          name="daysToManufacture" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[productLine]"
+                          dataType="wstr"
+                          length="2"
+                          name="productLine" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          dataType="wstr"
+                          length="2"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[style]"
+                          dataType="wstr"
+                          length="2"
+                          name="style" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -2287,57 +2576,121 @@ FROM            Production.Product INNER JOIN
                       name="OLE DB Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[locationId]"
                           dataType="i2"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[LocationID]"
-                          name="LocationID" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[locationId]"
+                          name="locationId" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[locationName]"
                           dataType="wstr"
                           length="50"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Name]"
-                          name="Name" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[locationName]"
+                          name="locationName" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[productId]"
                           dataType="i4"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ProductID]"
-                          name="ProductID" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[productId]"
+                          name="productId" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[productName]"
                           dataType="wstr"
                           length="50"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ProductName]"
-                          name="ProductName" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[productName]"
+                          name="productName" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
                           dataType="i4"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
-                          name="WorkOrderID" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
+                          name="workOrderId" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[OperationSequence]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[operationSequence]"
                           dataType="i2"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[OperationSequence]"
-                          name="OperationSequence" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[operationSequence]"
+                          name="operationSequence" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[scrappedQty]"
                           dataType="i2"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
-                          name="ScrappedQty" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[scrappedQty]"
+                          name="scrappedQty" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[endDate]"
                           dataType="dbTimeStamp"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[EndDate]"
-                          name="EndDate" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[endDate]"
+                          name="endDate" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[DataID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[dataId]"
                           dataType="i4"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[DataID]"
-                          name="DataID" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[dataId]"
+                          name="dataId" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[stockedQty]"
                           dataType="i4"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
-                          name="StockedQty" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[stockedQty]"
+                          name="stockedQty" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[color]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[color]"
+                          name="color" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[makeFlag]"
+                          dataType="bool"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[makeFlag]"
+                          name="makeFlag" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[listPrice]"
+                          dataType="cy"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[listPrice]"
+                          name="listPrice" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[size]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[size]"
+                          name="size" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[weight]"
+                          dataType="numeric"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[weight]"
+                          name="weight"
+                          precision="8"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[sizeUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[sizeUnitMeasureCode]"
+                          name="sizeUnitMeasureCode" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[weightUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[weightUnitMeasureCode]"
+                          name="weightUnitMeasureCode" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[daysToManufacture]"
+                          dataType="i4"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[daysToManufacture]"
+                          name="daysToManufacture" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[productLine]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[productLine]"
+                          name="productLine" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[class]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[class]"
+                          name="class" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[style]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[style]"
+                          name="style" />
                         <outputColumn
                           refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -2407,6 +2760,10 @@ FROM            Production.Product INNER JOIN
           Size="140,42"
           Id="Package\DWH Container\Dim Produto"
           TopLeft="37,172" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\DWH Container\dim WorkOrder"
+          TopLeft="80,244" />
         <NodeLayout
           Size="139,42"
           Id="Package\DWH Container\Dim_Tempo"
@@ -2479,10 +2836,6 @@ FROM            Production.Product INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153,42"
-          Id="Package\DWH Container\dim WorkOrder"
-          TopLeft="80,244" />
         <EdgeLayout
           Id="Package\DWH Container.PrecedenceConstraints[Constraint 2]"
           TopLeft="107,214">
@@ -2524,6 +2877,55 @@ FROM            Production.Product INNER JOIN
           Size="284,384"
           Id="Package\DWH Container"
           TopLeft="551,158" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Facto\Connect FKs"
+          TopLeft="96.7272727272726,99.5454545454546" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Facto\FactoProducao"
+          TopLeft="27,19" />
+        <EdgeLayout
+          Id="Package\Facto.PrecedenceConstraints[Constraint]"
+          TopLeft="104,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.7272727272726,38.5454545454546"
+              Start="0,0"
+              End="63.7272727272726,31.0454545454546">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.2727272727273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.2727272727273"
+                    Point2="0,19.2727272727273"
+                    Point3="4,19.2727272727273" />
+                  <mssgle:LineSegment
+                    End="59.7272727272726,19.2727272727273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.7272727272726,19.2727272727273"
+                    Point2="63.7272727272726,19.2727272727273"
+                    Point3="63.7272727272726,23.2727272727273" />
+                  <mssgle:LineSegment
+                    End="63.7272727272726,31.0454545454546" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="287,197"
+          Size="287,240"
+          Id="Package\Facto"
+          TopLeft="876.142857142857,351.857142857143" />
         <NodeLayout
           Size="140,42"
           Id="Package\Staging Area Population\StagingArea"
@@ -2569,55 +2971,6 @@ FROM            Production.Product INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Facto\FactoProducao"
-          TopLeft="27,19" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Facto\Connect FKs"
-          TopLeft="96.7272727272726,99.5454545454546" />
-        <EdgeLayout
-          Id="Package\Facto.PrecedenceConstraints[Constraint]"
-          TopLeft="104,61">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="63.7272727272726,38.5454545454546"
-              Start="0,0"
-              End="63.7272727272726,31.0454545454546">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.2727272727273" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.2727272727273"
-                    Point2="0,19.2727272727273"
-                    Point3="4,19.2727272727273" />
-                  <mssgle:LineSegment
-                    End="59.7272727272726,19.2727272727273" />
-                  <mssgle:CubicBezierSegment
-                    Point1="59.7272727272726,19.2727272727273"
-                    Point2="63.7272727272726,19.2727272727273"
-                    Point3="63.7272727272726,23.2727272727273" />
-                  <mssgle:LineSegment
-                    End="63.7272727272726,31.0454545454546" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="287,197"
-          Size="287,240"
-          Id="Package\Facto"
-          TopLeft="876.142857142857,351.857142857143" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="835,350">
@@ -2776,6 +3129,98 @@ FROM            Production.Product INNER JOIN
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Produto\ProductDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Produto\ProductExtraction">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DWH Container\dim WorkOrder">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DWH Container\dim WorkOrder\WorkOrderSource"
+          TopLeft="234,65" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\DWH Container\dim WorkOrder\WorkOrderDestination"
+          TopLeft="526,115" />
+        <EdgeLayout
+          Id="Package\DWH Container\dim WorkOrder.Paths[OLE DB Source Output]"
+          TopLeft="402,86">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,50"
+              Start="0,0"
+              End="116.5,50">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="58,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58,0"
+                    Point2="62,0"
+                    Point3="62,4" />
+                  <mssgle:LineSegment
+                    End="62,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62,46"
+                    Point2="62,50"
+                    Point3="66,50" />
+                  <mssgle:LineSegment
+                    End="116.5,50" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\dim WorkOrder\WorkOrderDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\dim WorkOrder\WorkOrderSource">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DWH Container\Dim_Tempo">
     <LayoutInfo>
@@ -2838,88 +3283,6 @@ FROM            Production.Product INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Staging Area Population\StagingArea">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Staging Area Population\StagingArea\StagingExtraction"
-          TopLeft="141,76" />
-        <NodeLayout
-          Size="172,62"
-          Id="Package\Staging Area Population\StagingArea\StagingDestination"
-          TopLeft="437,69" />
-        <EdgeLayout
-          Id="Package\Staging Area Population\StagingArea.Paths[OLE DB Source Output]"
-          TopLeft="306,98.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="131,0"
-              Start="0,0"
-              End="123.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="123.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Staging Area Population\StagingArea\StagingDestination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Staging Area Population\StagingArea\StagingExtraction">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim Produto\ProductDestination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim Produto\ProductExtraction">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Facto\FactoProducao">
     <LayoutInfo>
       <GraphLayout
@@ -2970,14 +3333,6 @@ FROM            Production.Product INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Facto\FactoProducao\ProducaoSource">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Facto\FactoProducao\factProducao">
     <Properties>
       <Property>
@@ -2990,45 +3345,41 @@ FROM            Production.Product INNER JOIN
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Facto\FactoProducao\ProducaoSource">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\DWH Container\dim WorkOrder">
+    design-time-name="Package\Staging Area Population\StagingArea">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168,42"
-          Id="Package\DWH Container\dim WorkOrder\WorkOrderSource"
-          TopLeft="234,65" />
+          Size="165,42"
+          Id="Package\Staging Area Population\StagingArea\StagingExtraction"
+          TopLeft="141,76" />
         <NodeLayout
-          Size="188,42"
-          Id="Package\DWH Container\dim WorkOrder\WorkOrderDestination"
-          TopLeft="526,115" />
+          Size="172,62"
+          Id="Package\Staging Area Population\StagingArea\StagingDestination"
+          TopLeft="437,69" />
         <EdgeLayout
-          Id="Package\DWH Container\dim WorkOrder.Paths[OLE DB Source Output]"
-          TopLeft="402,86">
+          Id="Package\Staging Area Population\StagingArea.Paths[OLE DB Source Output]"
+          TopLeft="306,98.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="124,50"
+              EndConnector="131,0"
               Start="0,0"
-              End="116.5,50">
+              End="123.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="58,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58,0"
-                    Point2="62,0"
-                    Point3="62,4" />
-                  <mssgle:LineSegment
-                    End="62,46" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62,46"
-                    Point2="62,50"
-                    Point3="66,50" />
-                  <mssgle:LineSegment
-                    End="116.5,50" />
+                    End="123.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3041,15 +3392,7 @@ FROM            Production.Product INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\dim WorkOrder\WorkOrderSource">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\dim WorkOrder\WorkOrderDestination">
+    design-time-name="Package\Staging Area Population\StagingArea\StagingDestination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3058,6 +3401,14 @@ FROM            Production.Product INNER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging Area Population\StagingArea\StagingExtraction">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
