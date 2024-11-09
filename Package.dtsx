@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{2406EB74-9AC0-4442-9182-C9A267345BD5}">
+  DTS:VersionBuild="61"
+  DTS:VersionGUID="{CF054616-9346-4684-BDC2-B9A8C22B853B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -108,7 +108,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dimLocalizacao]</property>
+                      name="OpenRowset">[LocalizacaoDestination]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -165,40 +165,27 @@
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].Columns[ProdPhaseName]"
-                          cachedDataType="wstr"
-                          cachedLength="50"
-                          cachedName="ProdPhaseName"
-                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProdPhaseName]"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[ProdPhaseName]" />
-                        <inputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].Columns[OperationSequence]"
-                          cachedDataType="i2"
-                          cachedName="OperationSequence"
-                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[OperationSequence]"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[OperationSequence]" />
-                        <inputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].Columns[LocationID]"
-                          cachedDataType="i2"
-                          cachedName="LocationID"
-                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[LocationID]" />
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].Columns[workOrderId]"
+                          cachedDataType="i4"
+                          cachedName="workOrderId"
+                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
+                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProdPhaseName]"
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
+                          dataType="i4"
+                          name="workOrderId" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[locationId]"
+                          dataType="i2"
+                          name="locationId" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[locationName]"
                           dataType="wstr"
                           length="50"
-                          name="ProdPhaseName" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[OperationSequence]"
-                          dataType="i2"
-                          name="OperationSequence" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
-                          dataType="i2"
-                          name="LocationID" />
+                          name="locationName" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -252,8 +239,8 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT       DISTINCT LocationID, ProdPhaseName, OperationSequence
-FROM            ProductionStaging</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT locationId, locationName, workOrderId
+FROM            StagingDestination</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -290,49 +277,49 @@ FROM            ProductionStaging</property>
                       name="OLE DB Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[ProdPhaseName]"
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[locationId]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationId]"
+                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[locationId]"
+                          name="locationId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[locationName]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProdPhaseName]"
+                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationName]"
                           length="50"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[ProdPhaseName]"
-                          name="ProdPhaseName"
+                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[locationName]"
+                          name="locationName"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[OperationSequence]"
-                          dataType="i2"
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[OperationSequence]"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[OperationSequence]"
-                          name="OperationSequence"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[LocationID]"
-                          dataType="i2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[LocationID]"
-                          name="LocationID"
+                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
+                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]"
+                          name="workOrderId"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProdPhaseName]"
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationId]"
+                          dataType="i2"
+                          name="locationId" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationName]"
                           dataType="wstr"
                           length="50"
-                          name="ProdPhaseName" />
+                          name="locationName" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[OperationSequence]"
-                          dataType="i2"
-                          name="OperationSequence" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
-                          dataType="i2"
-                          name="LocationID" />
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
+                          dataType="i4"
+                          name="workOrderId" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -341,21 +328,21 @@ FROM            ProductionStaging</property>
                       name="OLE DB Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[ProdPhaseName]"
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[locationId]"
+                          dataType="i2"
+                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[locationId]"
+                          name="locationId" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[locationName]"
                           dataType="wstr"
                           length="50"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[ProdPhaseName]"
-                          name="ProdPhaseName" />
+                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[locationName]"
+                          name="locationName" />
                         <outputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[OperationSequence]"
-                          dataType="i2"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[OperationSequence]"
-                          name="OperationSequence" />
-                        <outputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[LocationID]"
-                          dataType="i2"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[LocationID]"
-                          name="LocationID" />
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
+                          name="workOrderId" />
                         <outputColumn
                           refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -415,7 +402,7 @@ FROM            ProductionStaging</property>
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dimProduto]</property>
+                      name="OpenRowset">[ProductDestination]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -458,8 +445,8 @@ FROM            ProductionStaging</property>
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim Produto\ProductDestination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
-                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerID="Package.ConnectionManagers[AdventureWorks2022_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[AdventureWorks2022_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -472,30 +459,158 @@ FROM            ProductionStaging</property>
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[productId]"
                           cachedDataType="i4"
-                          cachedName="ProductID"
-                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
-                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                          cachedName="productId"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[productId]" />
                         <inputColumn
-                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[ProductName]"
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[productName]"
                           cachedDataType="wstr"
                           cachedLength="50"
-                          cachedName="ProductName"
-                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
-                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[ProductName]" />
+                          cachedName="productName"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[productName]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[productName]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[color]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="color"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[color]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[makeFlag]"
+                          cachedDataType="bool"
+                          cachedName="makeFlag"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[makeFlag]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[makeFlag]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[listPrice]"
+                          cachedDataType="cy"
+                          cachedName="listPrice"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[listPrice]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[listPrice]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[size]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="size"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[size]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[weight]"
+                          cachedDataType="numeric"
+                          cachedName="weight"
+                          cachedPrecision="8"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[weight]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[weight]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[sizeUnitMeasureCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="sizeUnitMeasureCode"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[sizeUnitMeasureCode]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[sizeUnitMeasureCode]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[weightUnitMeasureCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="weightUnitMeasureCode"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[weightUnitMeasureCode]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[weightUnitMeasureCode]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[daysToManufacture]"
+                          cachedDataType="i4"
+                          cachedName="daysToManufacture"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[daysToManufacture]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[daysToManufacture]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[productLine]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="productLine"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[productLine]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[productLine]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[class]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="class"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[class]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[class]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].Columns[style]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="style"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[style]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[style]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
                           dataType="i4"
-                          name="ProductID" />
+                          name="productId" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[productName]"
                           dataType="wstr"
                           length="50"
-                          name="ProductName" />
+                          name="productName" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                          dataType="wstr"
+                          length="15"
+                          name="color" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[makeFlag]"
+                          dataType="bool"
+                          name="makeFlag" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[listPrice]"
+                          dataType="cy"
+                          name="listPrice" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                          dataType="wstr"
+                          length="5"
+                          name="size" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[weight]"
+                          dataType="numeric"
+                          name="weight"
+                          precision="8"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[sizeUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="sizeUnitMeasureCode" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[weightUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="weightUnitMeasureCode" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[daysToManufacture]"
+                          dataType="i4"
+                          name="daysToManufacture" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[productLine]"
+                          dataType="wstr"
+                          length="2"
+                          name="productLine" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[class]"
+                          dataType="wstr"
+                          length="2"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductDestination.Inputs[OLE DB Destination Input].ExternalColumns[style]"
+                          dataType="wstr"
+                          length="2"
+                          name="style" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -549,8 +664,8 @@ FROM            ProductionStaging</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        DISTINCT ProductID, ProductName
-FROM            ProductionStaging</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT productId, productName, color, makeFlag, listPrice, [size], weight, sizeUnitMeasureCode, weightUnitMeasureCode, daysToManufacture, productLine, class, style
+FROM            StagingDestination</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -587,36 +702,197 @@ FROM            ProductionStaging</property>
                       name="OLE DB Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[productId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
-                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[ProductID]"
-                          name="ProductID"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[productId]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[productId]"
+                          name="productId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[ProductName]"
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[productName]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[productName]"
                           length="50"
-                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[ProductName]"
-                          name="ProductName"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[productName]"
+                          name="productName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[color]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[color]"
+                          length="15"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[color]"
+                          name="color"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[makeFlag]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[makeFlag]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[makeFlag]"
+                          name="makeFlag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[listPrice]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[listPrice]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[listPrice]"
+                          name="listPrice"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[size]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[size]"
+                          length="5"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[size]"
+                          name="size"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[weight]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[weight]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[weight]"
+                          name="weight"
+                          precision="8"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[sizeUnitMeasureCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[sizeUnitMeasureCode]"
+                          length="3"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[sizeUnitMeasureCode]"
+                          name="sizeUnitMeasureCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[weightUnitMeasureCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[weightUnitMeasureCode]"
+                          length="3"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[weightUnitMeasureCode]"
+                          name="weightUnitMeasureCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[daysToManufacture]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[daysToManufacture]"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[daysToManufacture]"
+                          name="daysToManufacture"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[productLine]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[productLine]"
+                          length="2"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[productLine]"
+                          name="productLine"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[class]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          length="2"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[class]"
+                          name="class"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[style]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[style]"
+                          length="2"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].Columns[style]"
+                          name="style"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[productId]"
                           dataType="i4"
-                          name="ProductID" />
+                          name="productId" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[productName]"
                           dataType="wstr"
                           length="50"
-                          name="ProductName" />
+                          name="productName" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[color]"
+                          dataType="wstr"
+                          length="15"
+                          name="color" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[makeFlag]"
+                          dataType="bool"
+                          name="makeFlag" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[listPrice]"
+                          dataType="cy"
+                          name="listPrice" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[size]"
+                          dataType="wstr"
+                          length="5"
+                          name="size" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[weight]"
+                          dataType="numeric"
+                          name="weight"
+                          precision="8"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[sizeUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="sizeUnitMeasureCode" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[weightUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="weightUnitMeasureCode" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[daysToManufacture]"
+                          dataType="i4"
+                          name="daysToManufacture" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[productLine]"
+                          dataType="wstr"
+                          length="2"
+                          name="productLine" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          dataType="wstr"
+                          length="2"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Output].ExternalColumns[style]"
+                          dataType="wstr"
+                          length="2"
+                          name="style" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -625,16 +901,80 @@ FROM            ProductionStaging</property>
                       name="OLE DB Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[productId]"
                           dataType="i4"
-                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[ProductID]"
-                          name="ProductID" />
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[productId]"
+                          name="productId" />
                         <outputColumn
-                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[productName]"
                           dataType="wstr"
                           length="50"
-                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[ProductName]"
-                          name="ProductName" />
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[productName]"
+                          name="productName" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[color]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[color]"
+                          name="color" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[makeFlag]"
+                          dataType="bool"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[makeFlag]"
+                          name="makeFlag" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[listPrice]"
+                          dataType="cy"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[listPrice]"
+                          name="listPrice" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[size]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[size]"
+                          name="size" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[weight]"
+                          dataType="numeric"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[weight]"
+                          name="weight"
+                          precision="8"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[sizeUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[sizeUnitMeasureCode]"
+                          name="sizeUnitMeasureCode" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[weightUnitMeasureCode]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[weightUnitMeasureCode]"
+                          name="weightUnitMeasureCode" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[daysToManufacture]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[daysToManufacture]"
+                          name="daysToManufacture" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[productLine]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[productLine]"
+                          name="productLine" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[class]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[class]"
+                          name="class" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[style]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[style]"
+                          name="style" />
                         <outputColumn
                           refId="Package\DWH Container\Dim Produto\ProductExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -667,7 +1007,6 @@ FROM            ProductionStaging</property>
           DTS:refId="Package\DWH Container\dim WorkOrder"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{58678C3A-B9E6-4E1B-932E-DCD5744A54ED}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -694,7 +1033,7 @@ FROM            ProductionStaging</property>
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dimWorkOrder]</property>
+                      name="OpenRowset">[WorkOrderDestination]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -751,38 +1090,38 @@ FROM            ProductionStaging</property>
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].Columns[WorkOrderID]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].Columns[workOrderId]"
                           cachedDataType="i4"
-                          cachedName="WorkOrderID"
-                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
-                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]" />
+                          cachedName="workOrderId"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[workOrderId]" />
                         <inputColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].Columns[StockedQty]"
-                          cachedDataType="i4"
-                          cachedName="StockedQty"
-                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
-                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[StockedQty]" />
-                        <inputColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].Columns[ScrappedQty]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].Columns[scrappedQty]"
                           cachedDataType="i2"
-                          cachedName="ScrappedQty"
-                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
-                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]" />
+                          cachedName="scrappedQty"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrappedQty]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[scrappedQty]" />
+                        <inputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].Columns[stockedQty]"
+                          cachedDataType="i4"
+                          cachedName="stockedQty"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[stockedQty]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[stockedQty]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
                           dataType="i4"
-                          name="WorkOrderID" />
+                          name="workOrderId" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
-                          dataType="i4"
-                          name="StockedQty" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrappedQty]"
                           dataType="i2"
-                          name="ScrappedQty" />
+                          name="scrappedQty" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[stockedQty]"
+                          dataType="i4"
+                          name="stockedQty" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -836,8 +1175,8 @@ FROM            ProductionStaging</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT      DISTINCT WorkOrderID,   StockedQty, ScrappedQty
-FROM            ProductionStaging ORDER BY WorkOrderID</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT workOrderId, scrappedQty, stockedQty
+FROM            StagingDestination</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -874,47 +1213,47 @@ FROM            ProductionStaging ORDER BY WorkOrderID</property>
                       name="OLE DB Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[workOrderId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
-                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
-                          name="WorkOrderID"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[workOrderId]"
+                          name="workOrderId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[StockedQty]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
-                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[StockedQty]"
-                          name="StockedQty"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[scrappedQty]"
                           dataType="i2"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
-                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
-                          name="ScrappedQty"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[scrappedQty]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[scrappedQty]"
+                          name="scrappedQty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[stockedQty]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[stockedQty]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[stockedQty]"
+                          name="stockedQty"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
                           dataType="i4"
-                          name="WorkOrderID" />
+                          name="workOrderId" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
-                          dataType="i4"
-                          name="StockedQty" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[scrappedQty]"
                           dataType="i2"
-                          name="ScrappedQty" />
+                          name="scrappedQty" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[stockedQty]"
+                          dataType="i4"
+                          name="stockedQty" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -923,20 +1262,20 @@ FROM            ProductionStaging ORDER BY WorkOrderID</property>
                       name="OLE DB Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
                           dataType="i4"
-                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
-                          name="WorkOrderID" />
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
+                          name="workOrderId" />
                         <outputColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
-                          dataType="i4"
-                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
-                          name="StockedQty" />
-                        <outputColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[scrappedQty]"
                           dataType="i2"
-                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
-                          name="ScrappedQty" />
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[scrappedQty]"
+                          name="scrappedQty" />
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[stockedQty]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[stockedQty]"
+                          name="stockedQty" />
                         <outputColumn
                           refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -2965,7 +3304,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\DWH Container\Dim Localização">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="186,42"
           Id="Package\DWH Container\Dim Localização\LocalizacaoExtraction"
@@ -3005,27 +3344,12 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim Localização\LocalizacaoDestination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DWH Container\Dim Localização\LocalizacaoExtraction">
     <Properties>
@@ -3038,7 +3362,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\DWH Container\Dim Produto">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="166,42"
           Id="Package\DWH Container\Dim Produto\ProductExtraction"
@@ -3046,59 +3370,32 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         <NodeLayout
           Size="172,42"
           Id="Package\DWH Container\Dim Produto\ProductDestination"
-          TopLeft="543,160" />
+          TopLeft="509.5,79.5" />
         <EdgeLayout
           Id="Package\DWH Container\Dim Produto.Paths[OLE DB Source Output]"
-          TopLeft="295,124">
+          TopLeft="378,101.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="334,36"
+              EndConnector="131.5,0"
               Start="0,0"
-              End="334,28.5">
+              End="124,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14"
-                    Point2="0,18"
-                    Point3="4,18" />
-                  <mssgle:LineSegment
-                    End="330,18" />
-                  <mssgle:CubicBezierSegment
-                    Point1="330,18"
-                    Point2="334,18"
-                    Point3="334,22" />
-                  <mssgle:LineSegment
-                    End="334,28.5" />
+                    End="124,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim Produto\ProductDestination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DWH Container\Dim Produto\ProductExtraction">
     <Properties>
@@ -3111,7 +3408,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\DWH Container\dim WorkOrder">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168,42"
           Id="Package\DWH Container\dim WorkOrder\WorkOrderSource"
@@ -3151,9 +3448,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3354,6 +3649,32 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DWH Container\Dim_Tempo\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Localização\LocalizacaoDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Produto\ProductDestination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
