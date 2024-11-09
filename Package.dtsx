@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="75"
-  DTS:VersionGUID="{04015758-05D0-4B81-B353-A2D824E9D28E}">
+  DTS:VersionBuild="76"
+  DTS:VersionGUID="{588F09F5-0069-4CC6-A96D-3F32FA6416C3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -92,7 +92,7 @@
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
               SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="-- Alterar a coluna productId para não permitir valores nulos&#xA;ALTER TABLE ProductDestination&#xA;ALTER COLUMN productId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna workOrderId para não permitir valores nulos&#xA;ALTER TABLE WorkOrderDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna locationId para não permitir valores nulos&#xA;ALTER TABLE LocalizacaoDestination&#xA;ALTER COLUMN locationId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna dateId para não permitir valores nulos&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN dateId INT NOT NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="-- Alterar a coluna productId para não permitir valores nulos&#xA;ALTER TABLE ProductDestination&#xA;ALTER COLUMN productId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna workOrderId para não permitir valores nulos&#xA;ALTER TABLE WorkOrderDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna locationId para não permitir valores nulos&#xA;ALTER TABLE LocalizacaoDestination&#xA;ALTER COLUMN locationId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna dateId para não permitir valores nulos&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN dataId INT NOT NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
