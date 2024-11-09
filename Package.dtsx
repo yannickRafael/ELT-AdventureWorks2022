@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="69"
-  DTS:VersionGUID="{1FB07058-531F-4B06-B1F8-46C8D1807E56}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{04015758-05D0-4B81-B353-A2D824E9D28E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -68,9 +68,68 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\CleanUp"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{096A14C3-6465-453A-8ABC-017FD1377322}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CleanUp">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CleanUp\No-Nullable"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B760A91D-8A1E-4747-AD09-4E26D7B81A8E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="No-Nullable"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="-- Alterar a coluna productId para não permitir valores nulos&#xA;ALTER TABLE ProductDestination&#xA;ALTER COLUMN productId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna workOrderId para não permitir valores nulos&#xA;ALTER TABLE WorkOrderDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna locationId para não permitir valores nulos&#xA;ALTER TABLE LocalizacaoDestination&#xA;ALTER COLUMN locationId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna dateId para não permitir valores nulos&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN dateId INT NOT NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CleanUp\Remove Null"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Disabled="True"
+          DTS:DTSID="{303BE554-0509-4DFA-9D1B-BD427F9F8FF5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Remove Null"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="DELETE FROM ProductDestination&#xA;WHERE productId IS NULL&#xA;   OR productName IS NULL&#xA;   OR color IS NULL&#xA;   OR makeFlag IS NULL&#xA;   OR listPrice IS NULL&#xA;   OR size IS NULL&#xA;   OR weight IS NULL&#xA;   OR sizeUnitMeasureCode IS NULL&#xA;   OR weightUnitMeasureCode IS NULL&#xA;   OR daysToManufacture IS NULL&#xA;   OR productLine IS NULL&#xA;   OR class IS NULL&#xA;   OR style IS NULL;&#xA;   &#xA;&#xA;DELETE FROM WorkOrderDestination&#xA;WHERE workOrderId IS NULL&#xA;   OR scrappedQty IS NULL&#xA;   OR stockedQty IS NULL;&#xA;&#xA;DELETE FROM LocalizacaoDestination&#xA;WHERE locationId IS NULL&#xA;   OR locationName IS NULL&#xA;   OR workOrderId IS NULL;&#xA;&#xA;DELETE FROM DateDestination&#xA;WHERE dataId IS NULL&#xA;   OR endDate IS NULL&#xA;   OR mes IS NULL&#xA;   OR mesName IS NULL&#xA;   OR ano IS NULL&#xA;   OR semestre IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CleanUp.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E6AFF0CB-CBC3-4395-8DEF-15741FF594D7}"
+          DTS:From="Package\CleanUp\Remove Null"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CleanUp\No-Nullable" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\DWH Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{5730FFEE-6EB1-42C4-8FB8-48A48318622D}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -1750,6 +1809,7 @@ FROM            StagingDestination</property>
           DTS:refId="Package\Facto\Connect FKs"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{5C60A2A9-348C-446D-96DC-70FC8744CC8F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -1765,6 +1825,7 @@ FROM            StagingDestination</property>
           DTS:refId="Package\Facto\FactoProducao"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{EC09B25A-E8B2-4472-9DC5-3C50C4416904}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -2149,7 +2210,7 @@ FROM            ProductionStaging</property>
         <DTS:Executable
           DTS:refId="Package\Facto\Foreign Keys task"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
+          DTS:Description="Connects all tables on DWH using FK"
           DTS:DTSID="{792FA46B-E824-4F35-A7B0-FB5B280C8EE3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -2158,7 +2219,11 @@ FROM            ProductionStaging</property>
           DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
-            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="-- Alterar a coluna productId para não permitir valores nulos&#xA;ALTER TABLE ProductDestination&#xA;ALTER COLUMN productId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna workOrderId para não permitir valores nulos&#xA;ALTER TABLE WorkOrderDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna locationId para não permitir valores nulos&#xA;ALTER TABLE LocalizacaoDestination&#xA;ALTER COLUMN locationId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna dateId para não permitir valores nulos&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN dateId INT NOT NULL;&#xA;&#xA;-- Adicionar chaves primárias às tabelas&#xA;ALTER TABLE ProductDestination&#xA;ADD CONSTRAINT PK_ProductDestination PRIMARY KEY (productId);&#xA;&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD CONSTRAINT PK_WorkOrderDestination PRIMARY KEY (workOrderId);&#xA;&#xA;ALTER TABLE LocalizacaoDestination&#xA;ADD CONSTRAINT PK_LocalizacaoDestination PRIMARY KEY (locationId);&#xA;&#xA;ALTER TABLE DateDestination&#xA;ADD CONSTRAINT PK_DateDestination PRIMARY KEY (dateId);&#xA;&#xA;-- Adicionar nova coluna para ligação na tabela DateDestination&#xA;ALTER TABLE DateDestination&#xA;ADD workOrderId INT;&#xA;&#xA;-- Adicionar coluna productId em WorkOrderDestination para referência&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD productId INT;&#xA;&#xA;-- Adicionar coluna locationId em WorkOrderDestination para referência&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD locationId INT;&#xA;&#xA;-- Estabelecer relacionamento entre WorkOrderDestination e ProductDestination&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD CONSTRAINT FK_WorkOrderDestination_ProductDestination&#xA;FOREIGN KEY (productId)&#xA;REFERENCES ProductDestination(productId);&#xA;&#xA;-- Estabelecer relacionamento entre WorkOrderDestination e LocalizacaoDestination&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD CONSTRAINT FK_WorkOrderDestination_LocalizacaoDestination&#xA;FOREIGN KEY (locationId)&#xA;REFERENCES LocalizacaoDestination(locationId);&#xA;&#xA;-- Estabelecer relacionamento entre DateDestination e WorkOrderDestination&#xA;ALTER TABLE DateDestination&#xA;ADD CONSTRAINT FK_DateDestination_WorkOrderDestination&#xA;FOREIGN KEY (workOrderId)&#xA;REFERENCES WorkOrderDestination(workOrderId);&#xA;&#xA;-- Estabelecer relacionamento entre LocalizacaoDestination e WorkOrderDestination&#xA;ALTER TABLE LocalizacaoDestination&#xA;ADD CONSTRAINT FK_LocalizacaoDestination_WorkOrderDestination&#xA;FOREIGN KEY (workOrderId)&#xA;REFERENCES WorkOrderDestination(workOrderId);&#xA;"
+              SQLTask:TypeConversionMode="None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -3074,14 +3139,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\DWH Container" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{DDBAEDBC-B28C-4CA4-8A7F-535D860F2FFF}"
-      DTS:From="Package\DWH Container"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Facto" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3265,14 +3322,14 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         <NodeLayout
           Size="170,42"
           Id="Package\Facto\Foreign Keys task"
-          TopLeft="23.2777777777777,8.90877914951989" />
+          TopLeft="111.055555555556,52.2421124828532" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="287,237"
           Size="287,280"
           Id="Package\Facto"
-          TopLeft="539.47619047619,181.857142857143" />
+          TopLeft="949.47619047619,141.857142857143" />
         <NodeLayout
           Size="140,42"
           Id="Package\Staging Area Population\StagingArea"
@@ -3284,40 +3341,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           Size="321,43"
           Id="Package\Staging Area Population"
           TopLeft="80,142" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="383.888888888889,263.722222222222">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="155.587301587301,58.1349206349207"
-              Start="0,0"
-              End="148.087301587301,58.1349206349207">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="73.7936507936507,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="73.7936507936507,0"
-                    Point2="77.7936507936507,0"
-                    Point3="77.7936507936507,4" />
-                  <mssgle:LineSegment
-                    End="77.7936507936507,54.1349206349207" />
-                  <mssgle:CubicBezierSegment
-                    Point1="77.7936507936507,54.1349206349207"
-                    Point2="77.7936507936507,58.1349206349207"
-                    Point3="81.7936507936507,58.1349206349207" />
-                  <mssgle:LineSegment
-                    End="148.087301587301,58.1349206349207" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="241.194444444444,185">
@@ -3340,6 +3363,55 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="142,42"
+          Id="Package\CleanUp\Remove Null"
+          TopLeft="36.1428571428572,15.4285714285714" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\CleanUp\No-Nullable"
+          TopLeft="51,97" />
+        <EdgeLayout
+          Id="Package\CleanUp.PrecedenceConstraints[Constraint]"
+          TopLeft="107.142857142857,57.4285714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.3571428571428,39.5714285714286"
+              Start="0,0"
+              End="12.3571428571428,32.0714285714286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7857142857143"
+                    Point2="0,19.7857142857143"
+                    Point3="4,19.7857142857143" />
+                  <mssgle:LineSegment
+                    End="8.35714285714278,19.7857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.35714285714278,19.7857142857143"
+                    Point2="12.3571428571428,19.7857142857143"
+                    Point3="12.3571428571428,23.7857142857143" />
+                  <mssgle:LineSegment
+                    End="12.3571428571428,32.0714285714286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="276,284"
+          Size="276,327"
+          Id="Package\CleanUp"
+          TopLeft="548.527777777778,121.472222222222" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
