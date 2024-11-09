@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="116"
-  DTS:VersionGUID="{6BCF5502-D439-49BF-9933-D0AE4FF2F430}">
+  DTS:VersionBuild="119"
+  DTS:VersionGUID="{480C234E-0EC5-4C1D-AFF3-B909D3B7B3CB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2458,6 +2458,13 @@ FROM            DateDestination INNER JOIN
                           cachedName="style"
                           externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[style]"
                           lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[style]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[scrapReason]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="scrapReason"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapReason]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrapReason]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2556,6 +2563,11 @@ FROM            DateDestination INNER JOIN
                           dataType="wstr"
                           length="2"
                           name="style" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapReason]"
+                          dataType="wstr"
+                          length="50"
+                          name="scrapReason" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2613,8 +2625,8 @@ FROM            DateDestination INNER JOIN
                          Production.WorkOrder.WorkOrderID AS workOrderId, Production.WorkOrderRouting.OperationSequence AS operationSequence, Production.WorkOrder.ScrappedQty AS scrappedQty, Production.WorkOrder.EndDate AS endDate, 
                          CONVERT(int, Production.WorkOrder.EndDate) AS dataId, Production.WorkOrder.StockedQty AS stockedQty, Production.Product.Color AS color, Production.Product.MakeFlag AS makeFlag, Production.Product.ListPrice AS listPrice, 
                          Production.Product.[Size] AS [size], Production.Product.Weight AS weight, Production.Product.SizeUnitMeasureCode AS sizeUnitMeasureCode, Production.Product.WeightUnitMeasureCode AS weightUnitMeasureCode, 
-                         Production.Product.DaysToManufacture AS daysToManufacture, Production.Product.ProductLine AS productLine, Production.Product.Class AS class, Production.Product.Style AS style, Production.WorkOrder.ScrapReasonID, 
-                         Production.ScrapReason.Name, Production.ScrapReason.ScrapReasonID AS Expr1
+                         Production.Product.DaysToManufacture AS daysToManufacture, Production.Product.ProductLine AS productLine, Production.Product.Class AS class, Production.Product.Style AS style, 
+                         Production.ScrapReason.Name AS scrapReason
 FROM            Production.Product INNER JOIN
                          Production.WorkOrder ON Production.Product.ProductID = Production.WorkOrder.ProductID INNER JOIN
                          Production.WorkOrderRouting ON Production.WorkOrder.WorkOrderID = Production.WorkOrderRouting.WorkOrderID INNER JOIN
@@ -2625,7 +2637,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                          (Production.WorkOrder.EndDate IS NOT NULL) AND (CONVERT(int, Production.WorkOrder.EndDate) IS NOT NULL) AND (Production.WorkOrder.StockedQty IS NOT NULL) AND (Production.Product.Color IS NOT NULL) AND 
                          (Production.Product.MakeFlag IS NOT NULL) AND (Production.Product.ListPrice IS NOT NULL) AND (Production.Product.[Size] IS NOT NULL) AND (Production.Product.Weight IS NOT NULL) AND 
                          (Production.Product.SizeUnitMeasureCode IS NOT NULL) AND (Production.Product.WeightUnitMeasureCode IS NOT NULL) AND (Production.Product.DaysToManufacture IS NOT NULL) AND 
-                         (Production.Product.ProductLine IS NOT NULL) AND (Production.Product.Class IS NOT NULL) AND (Production.Product.Style IS NOT NULL)</property>
+                         (Production.Product.ProductLine IS NOT NULL) AND (Production.Product.Class IS NOT NULL) AND (Production.Product.Style IS NOT NULL) AND (Production.ScrapReason.Name IS NOT NULL)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2862,32 +2874,14 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                           name="style"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ScrapReasonID]"
-                          dataType="i2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ScrapReasonID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ScrapReasonID]"
-                          name="ScrapReasonID"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrapReason]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrapReason]"
                           length="50"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Name]"
-                          name="Name"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Expr1]"
-                          dataType="i2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Expr1]"
-                          name="Expr1"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrapReason]"
+                          name="scrapReason"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -2988,18 +2982,10 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                           length="2"
                           name="style" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ScrapReasonID]"
-                          dataType="i2"
-                          name="ScrapReasonID" />
-                        <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrapReason]"
                           dataType="wstr"
                           length="50"
-                          name="Name" />
-                        <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
-                          dataType="i2"
-                          name="Expr1" />
+                          name="scrapReason" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -3124,21 +3110,11 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                           lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[style]"
                           name="style" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ScrapReasonID]"
-                          dataType="i2"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ScrapReasonID]"
-                          name="ScrapReasonID" />
-                        <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[scrapReason]"
                           dataType="wstr"
                           length="50"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Name]"
-                          name="Name" />
-                        <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Expr1]"
-                          dataType="i2"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Expr1]"
-                          name="Expr1" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[scrapReason]"
+                          name="scrapReason" />
                         <outputColumn
                           refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -3468,8 +3444,8 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         <ContainerLayout
           HeaderHeight="47"
           IsExpanded="True"
-          PanelSize="284,341"
-          Size="284,388"
+          PanelSize="284,443"
+          Size="284,490"
           Id="Package\DWH Container"
           TopLeft="129.888888888889,347.722222222222" />
         <NodeLayout
@@ -3500,26 +3476,26 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-31.1111111111111,148.722222222222"
+              EndConnector="-31.111111111111,148.722222222222"
               Start="0,0"
-              End="-31.1111111111111,141.222222222222">
+              End="-31.111111111111,141.222222222222">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.3611111111111" />
+                    End="0,70.361111111111" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,70.3611111111111"
-                    Point2="0,74.3611111111111"
-                    Point3="-4,74.3611111111111" />
+                    Point1="0,70.361111111111"
+                    Point2="0,74.361111111111"
+                    Point3="-4,74.361111111111" />
                   <mssgle:LineSegment
-                    End="-27.1111111111111,74.3611111111111" />
+                    End="-27.111111111111,74.361111111111" />
                   <mssgle:CubicBezierSegment
-                    Point1="-27.1111111111111,74.3611111111111"
-                    Point2="-31.1111111111111,74.3611111111111"
-                    Point3="-31.1111111111111,78.3611111111111" />
+                    Point1="-27.111111111111,74.361111111111"
+                    Point2="-31.111111111111,74.361111111111"
+                    Point3="-31.111111111111,78.361111111111" />
                   <mssgle:LineSegment
-                    End="-31.1111111111111,141.222222222222" />
+                    End="-31.111111111111,141.222222222222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3530,18 +3506,30 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="413.888888888889,545.597222222222">
+          TopLeft="413.888888888889,592.722222222222">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="107.138888888889,0"
+              EndConnector="107.138888888889,-43.25"
               Start="0,0"
-              End="99.6388888888888,0">
+              End="99.638888888889,-43.25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="99.6388888888888,0" />
+                    End="49.5694444444445,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.5694444444445,0"
+                    Point2="53.5694444444445,0"
+                    Point3="53.5694444444445,-4" />
+                  <mssgle:LineSegment
+                    End="53.5694444444445,-39.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.5694444444445,-39.25"
+                    Point2="53.5694444444445,-43.25"
+                    Point3="57.5694444444445,-43.25" />
+                  <mssgle:LineSegment
+                    End="99.638888888889,-43.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3591,7 +3579,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\DWH Container\Dim Localização">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="186,42"
           Id="Package\DWH Container\Dim Localização\LocalizacaoExtraction"
@@ -3631,7 +3619,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3662,7 +3652,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\DWH Container\Dim Produto">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="166,42"
           Id="Package\DWH Container\Dim Produto\ProductExtraction"
@@ -3690,7 +3680,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3792,7 +3784,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\DWH Container\Dim_Tempo">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="148,42"
           Id="Package\DWH Container\Dim_Tempo\TempoSource"
@@ -3832,7 +3824,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3863,7 +3857,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\Facto\FactoProducao">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="161,42"
           Id="Package\Facto\FactoProducao\ProducaoSource"
@@ -3891,7 +3885,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3922,42 +3918,48 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\Staging Area Population\StagingArea">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="165,42"
           Id="Package\Staging Area Population\StagingArea\StagingExtraction"
           TopLeft="141,76" />
         <NodeLayout
-          Size="172,62"
+          Size="172,42"
           Id="Package\Staging Area Population\StagingArea\StagingDestination"
-          TopLeft="437,69" />
+          TopLeft="430.5,74.6666666666667" />
         <EdgeLayout
           Id="Package\Staging Area Population\StagingArea.Paths[OLE DB Source Output]"
-          TopLeft="306,98.5">
+          TopLeft="306,96.3333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="131,0"
+              EndConnector="124.5,0"
               Start="0,0"
-              End="123.5,0">
+              End="117,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="123.5,0" />
+                    End="117,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging Area Population\StagingArea\StagingExtraction">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Staging Area Population\StagingArea\StagingDestination">
     <Properties>
@@ -3968,14 +3970,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Staging Area Population\StagingArea\StagingExtraction">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
