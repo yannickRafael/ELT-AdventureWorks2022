@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="95"
-  DTS:VersionGUID="{095298F7-A441-48FB-8BB4-A9FDC6769E98}">
+  DTS:VersionBuild="116"
+  DTS:VersionGUID="{6BCF5502-D439-49BF-9933-D0AE4FF2F430}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -71,6 +71,7 @@
       DTS:refId="Package\CleanUp"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{096A14C3-6465-453A-8ABC-017FD1377322}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -100,7 +101,6 @@
           DTS:refId="Package\CleanUp\Connect FK"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{81083443-0419-460B-9ADE-606ABCB4F34D}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -119,7 +119,6 @@
           DTS:refId="Package\CleanUp\No-Nullable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{B760A91D-8A1E-4747-AD09-4E26D7B81A8E}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -137,7 +136,6 @@
         <DTS:Executable
           DTS:refId="Package\CleanUp\Remove Null"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Disabled="True"
           DTS:DTSID="{303BE554-0509-4DFA-9D1B-BD427F9F8FF5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -155,7 +153,6 @@
         <DTS:Executable
           DTS:refId="Package\CleanUp\Set-PrimaryKey"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Disabled="True"
           DTS:DTSID="{B7C7E329-7037-47B6-BD12-C8B784D31823}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -585,8 +582,8 @@ FROM            StagingDestination</property>
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim Produto\ProductDestination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[AdventureWorks2022_Connection]"
-                      connectionManagerRefId="Package.ConnectionManagers[AdventureWorks2022_Connection]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1263,6 +1260,10 @@ FROM            StagingDestination</property>
                           refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[stockedQty]"
                           dataType="i4"
                           name="stockedQty" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
+                          dataType="i4"
+                          name="productId" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1601,6 +1602,10 @@ FROM            StagingDestination</property>
                           dataType="str"
                           length="15"
                           name="semestre" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
+                          dataType="i4"
+                          name="workOrderId" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1890,7 +1895,6 @@ FROM            StagingDestination</property>
           DTS:refId="Package\Facto\FactoProducao"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{EC09B25A-E8B2-4472-9DC5-3C50C4416904}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -2225,7 +2229,6 @@ FROM            DateDestination INNER JOIN
       DTS:refId="Package\Staging Area Population"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{EB8D434B-B946-4748-BCF8-BF3EAB6F266C}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -2553,11 +2556,6 @@ FROM            DateDestination INNER JOIN
                           dataType="wstr"
                           length="2"
                           name="style" />
-                        <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                          dataType="wstr"
-                          length="50"
-                          name="Name" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2615,11 +2613,13 @@ FROM            DateDestination INNER JOIN
                          Production.WorkOrder.WorkOrderID AS workOrderId, Production.WorkOrderRouting.OperationSequence AS operationSequence, Production.WorkOrder.ScrappedQty AS scrappedQty, Production.WorkOrder.EndDate AS endDate, 
                          CONVERT(int, Production.WorkOrder.EndDate) AS dataId, Production.WorkOrder.StockedQty AS stockedQty, Production.Product.Color AS color, Production.Product.MakeFlag AS makeFlag, Production.Product.ListPrice AS listPrice, 
                          Production.Product.[Size] AS [size], Production.Product.Weight AS weight, Production.Product.SizeUnitMeasureCode AS sizeUnitMeasureCode, Production.Product.WeightUnitMeasureCode AS weightUnitMeasureCode, 
-                         Production.Product.DaysToManufacture AS daysToManufacture, Production.Product.ProductLine AS productLine, Production.Product.Class AS class, Production.Product.Style AS style
+                         Production.Product.DaysToManufacture AS daysToManufacture, Production.Product.ProductLine AS productLine, Production.Product.Class AS class, Production.Product.Style AS style, Production.WorkOrder.ScrapReasonID, 
+                         Production.ScrapReason.Name, Production.ScrapReason.ScrapReasonID AS Expr1
 FROM            Production.Product INNER JOIN
                          Production.WorkOrder ON Production.Product.ProductID = Production.WorkOrder.ProductID INNER JOIN
                          Production.WorkOrderRouting ON Production.WorkOrder.WorkOrderID = Production.WorkOrderRouting.WorkOrderID INNER JOIN
-                         Production.Location ON Production.WorkOrderRouting.LocationID = Production.Location.LocationID
+                         Production.Location ON Production.WorkOrderRouting.LocationID = Production.Location.LocationID INNER JOIN
+                         Production.ScrapReason ON Production.WorkOrder.ScrapReasonID = Production.ScrapReason.ScrapReasonID
 WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Location.Name IS NOT NULL) AND (Production.Product.ProductID IS NOT NULL) AND (Production.Product.Name IS NOT NULL) AND 
                          (Production.WorkOrder.WorkOrderID IS NOT NULL) AND (Production.WorkOrderRouting.OperationSequence IS NOT NULL) AND (Production.WorkOrder.ScrappedQty IS NOT NULL) AND 
                          (Production.WorkOrder.EndDate IS NOT NULL) AND (CONVERT(int, Production.WorkOrder.EndDate) IS NOT NULL) AND (Production.WorkOrder.StockedQty IS NOT NULL) AND (Production.Product.Color IS NOT NULL) AND 
@@ -2861,6 +2861,34 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                           lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[style]"
                           name="style"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ScrapReasonID]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ScrapReasonID]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ScrapReasonID]"
+                          name="ScrapReasonID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="50"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Expr1]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Expr1]"
+                          name="Expr1"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2959,6 +2987,19 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                           dataType="wstr"
                           length="2"
                           name="style" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ScrapReasonID]"
+                          dataType="i2"
+                          name="ScrapReasonID" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
+                          dataType="i2"
+                          name="Expr1" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -3083,6 +3124,22 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                           lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[style]"
                           name="style" />
                         <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ScrapReasonID]"
+                          dataType="i2"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ScrapReasonID]"
+                          name="ScrapReasonID" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Expr1]"
+                          dataType="i2"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Expr1]"
+                          name="Expr1" />
+                        <outputColumn
                           refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -3152,182 +3209,25 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="160,42"
-          Id="Package\DWH Container\Dim Localização"
-          TopLeft="68,92" />
+          Size="143,42"
+          Id="Package\CleanUp\Add columns"
+          TopLeft="16.5555555555557,6" />
         <NodeLayout
-          Size="140,42"
-          Id="Package\DWH Container\Dim Produto"
-          TopLeft="37,172" />
+          Size="137,42"
+          Id="Package\CleanUp\Connect FK"
+          TopLeft="126.714285714286,266" />
         <NodeLayout
-          Size="153,42"
-          Id="Package\DWH Container\dim WorkOrder"
-          TopLeft="80,244" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\DWH Container\Dim_Tempo"
-          TopLeft="32,11" />
-        <EdgeLayout
-          Id="Package\DWH Container.PrecedenceConstraints[Constraint]"
-          TopLeft="101.5,53">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="46.5,39"
-              Start="0,0"
-              End="46.5,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="4,19.5" />
-                  <mssgle:LineSegment
-                    End="42.5,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="42.5,19.5"
-                    Point2="46.5,19.5"
-                    Point3="46.5,23.5" />
-                  <mssgle:LineSegment
-                    End="46.5,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DWH Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="148,134">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-41,38"
-              Start="0,0"
-              End="-41,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="-4,19" />
-                  <mssgle:LineSegment
-                    End="-37,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-37,19"
-                    Point2="-41,19"
-                    Point3="-41,23" />
-                  <mssgle:LineSegment
-                    End="-41,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DWH Container.PrecedenceConstraints[Constraint 2]"
-          TopLeft="107,214">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="49.5,30"
-              Start="0,0"
-              End="49.5,22.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11"
-                    Point2="0,15"
-                    Point3="4,15" />
-                  <mssgle:LineSegment
-                    End="45.5,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="45.5,15"
-                    Point2="49.5,15"
-                    Point3="49.5,19" />
-                  <mssgle:LineSegment
-                    End="49.5,22.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="47"
-          IsExpanded="False"
-          PanelSize="284,341"
-          Size="284,47"
-          Id="Package\DWH Container"
-          TopLeft="99.8888888888889,240.222222222222" />
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Facto\FactoProducao"
-          TopLeft="91,72.1111111111111" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="287,237"
-          Size="287,280"
-          Id="Package\Facto"
-          TopLeft="949.47619047619,141.857142857143" />
-        <NodeLayout
-          Size="140,42"
-          Id="Package\Staging Area Population\StagingArea"
-          TopLeft="69,25" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="False"
-          PanelSize="321,129"
-          Size="321,43"
-          Id="Package\Staging Area Population"
-          TopLeft="80,142" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="241.194444444444,185">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55.2222222222222"
-              Start="0,0"
-              End="0,47.7222222222222">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.7222222222222" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="137,42"
+          Id="Package\CleanUp\No-Nullable"
+          TopLeft="183.424242424242,79.4242424242424" />
         <NodeLayout
           Size="142,42"
           Id="Package\CleanUp\Remove Null"
           TopLeft="12.809523809524,82.0952380952381" />
         <NodeLayout
-          Size="137,42"
-          Id="Package\CleanUp\No-Nullable"
-          TopLeft="183.424242424242,79.4242424242424" />
+          Size="156,42"
+          Id="Package\CleanUp\Set-PrimaryKey"
+          TopLeft="24.4887334887334,154.119658119658" />
         <EdgeLayout
           Id="Package\CleanUp.PrecedenceConstraints[Constraint]"
           TopLeft="154.809523809524,101.75974025974">
@@ -3350,14 +3250,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\CleanUp\Set-PrimaryKey"
-          TopLeft="24.4887334887334,154.119658119658" />
-        <NodeLayout
-          Size="143,42"
-          Id="Package\CleanUp\Add columns"
-          TopLeft="16.5555555555557,6" />
         <EdgeLayout
           Id="Package\CleanUp.PrecedenceConstraints[Constraint 1]"
           TopLeft="85.9325396825398,48">
@@ -3414,10 +3306,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="137,42"
-          Id="Package\CleanUp\Connect FK"
-          TopLeft="126.714285714286,266" />
         <EdgeLayout
           Id="Package\CleanUp.PrecedenceConstraints[Constraint 3]"
           TopLeft="102.488733488733,196.119658119658">
@@ -3458,33 +3346,202 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           PanelSize="339,363"
           Size="339,406"
           Id="Package\CleanUp"
-          TopLeft="548.527777777778,121.472222222222" />
+          TopLeft="521.027777777778,346.472222222222" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\DWH Container\Dim Localização"
+          TopLeft="68,92" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\DWH Container\Dim Produto"
+          TopLeft="40,167.333333333333" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\DWH Container\dim WorkOrder"
+          TopLeft="80,244" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DWH Container\Dim_Tempo"
+          TopLeft="32,11" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="383.888888888889,263.722222222222">
+          Id="Package\DWH Container.PrecedenceConstraints[Constraint]"
+          TopLeft="101.5,53">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="164.638888888889,60.7499999999999"
+              EndConnector="46.5,39"
               Start="0,0"
-              End="157.138888888889,60.7499999999999">
+              End="46.5,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="78.3194444444444,0" />
+                    End="0,15.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="78.3194444444444,0"
-                    Point2="82.3194444444444,0"
-                    Point3="82.3194444444444,4" />
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
                   <mssgle:LineSegment
-                    End="82.3194444444444,56.7499999999999" />
+                    End="42.5,19.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="82.3194444444444,56.7499999999999"
-                    Point2="82.3194444444444,60.7499999999999"
-                    Point3="86.3194444444444,60.7499999999999" />
+                    Point1="42.5,19.5"
+                    Point2="46.5,19.5"
+                    Point3="46.5,23.5" />
                   <mssgle:LineSegment
-                    End="157.138888888889,60.7499999999999" />
+                    End="46.5,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DWH Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="148,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38,33.3333333333334"
+              Start="0,0"
+              End="-38,25.8333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.6666666666667"
+                    Point2="0,16.6666666666667"
+                    Point3="-4,16.6666666666667" />
+                  <mssgle:LineSegment
+                    End="-34,16.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34,16.6666666666667"
+                    Point2="-38,16.6666666666667"
+                    Point3="-38,20.6666666666667" />
+                  <mssgle:LineSegment
+                    End="-38,25.8333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DWH Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="110,209.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.5,34.6666666666666"
+              Start="0,0"
+              End="46.5,27.1666666666666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.3333333333333"
+                    Point2="0,17.3333333333333"
+                    Point3="4,17.3333333333333" />
+                  <mssgle:LineSegment
+                    End="42.5,17.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.5,17.3333333333333"
+                    Point2="46.5,17.3333333333333"
+                    Point3="46.5,21.3333333333333" />
+                  <mssgle:LineSegment
+                    End="46.5,27.1666666666666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="47"
+          IsExpanded="True"
+          PanelSize="284,341"
+          Size="284,388"
+          Id="Package\DWH Container"
+          TopLeft="129.888888888889,347.722222222222" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Facto\FactoProducao"
+          TopLeft="91,72.1111111111111" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="287,237"
+          Size="287,280"
+          Id="Package\Facto"
+          TopLeft="951.97619047619,426.857142857143" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Staging Area Population\StagingArea"
+          TopLeft="69,25" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="321,129"
+          Size="321,172"
+          Id="Package\Staging Area Population"
+          TopLeft="142.5,27" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="303,199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.1111111111111,148.722222222222"
+              Start="0,0"
+              End="-31.1111111111111,141.222222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.3611111111111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.3611111111111"
+                    Point2="0,74.3611111111111"
+                    Point3="-4,74.3611111111111" />
+                  <mssgle:LineSegment
+                    End="-27.1111111111111,74.3611111111111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.1111111111111,74.3611111111111"
+                    Point2="-31.1111111111111,74.3611111111111"
+                    Point3="-31.1111111111111,78.3611111111111" />
+                  <mssgle:LineSegment
+                    End="-31.1111111111111,141.222222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="413.888888888889,545.597222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="107.138888888889,0"
+              Start="0,0"
+              End="99.6388888888888,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="99.6388888888888,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3495,30 +3552,30 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="887.527777777778,324.472222222222">
+          TopLeft="860.027777777778,549.472222222222">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="61.9484126984127,-42.6150793650792"
+              EndConnector="91.9484126984127,17.3849206349207"
               Start="0,0"
-              End="54.4484126984127,-42.6150793650792">
+              End="84.4484126984127,17.3849206349207">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="26.9742063492063,0" />
+                    End="41.9742063492063,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="26.9742063492063,0"
-                    Point2="30.9742063492063,0"
-                    Point3="30.9742063492063,-4" />
+                    Point1="41.9742063492063,0"
+                    Point2="45.9742063492063,0"
+                    Point3="45.9742063492063,4" />
                   <mssgle:LineSegment
-                    End="30.9742063492063,-38.6150793650792" />
+                    End="45.9742063492063,13.3849206349207" />
                   <mssgle:CubicBezierSegment
-                    Point1="30.9742063492063,-38.6150793650792"
-                    Point2="30.9742063492063,-42.6150793650792"
-                    Point3="34.9742063492063,-42.6150793650792" />
+                    Point1="45.9742063492063,13.3849206349207"
+                    Point2="45.9742063492063,17.3849206349207"
+                    Point3="49.9742063492063,17.3849206349207" />
                   <mssgle:LineSegment
-                    End="54.4484126984127,-42.6150793650792" />
+                    End="84.4484126984127,17.3849206349207" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3581,6 +3638,19 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Localização\LocalizacaoDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DWH Container\Dim Localização\LocalizacaoExtraction">
     <Properties>
       <Property>
@@ -3626,6 +3696,19 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Produto\ProductDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DWH Container\Dim Produto\ProductExtraction">
     <Properties>
@@ -3755,6 +3838,27 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim_Tempo\DateDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim_Tempo\TempoSource">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Facto\FactoProducao">
     <LayoutInfo>
@@ -3793,6 +3897,19 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Facto\FactoProducao\factProducao">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Facto\FactoProducao\ProducaoSource">
     <Properties>
@@ -3859,66 +3976,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim Localização\LocalizacaoDestination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim Produto\ProductDestination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim_Tempo\TempoSource">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim_Tempo\DateDestination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Facto\FactoProducao\factProducao">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
