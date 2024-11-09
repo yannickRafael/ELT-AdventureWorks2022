@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{95F2A269-CB19-4CEF-889E-671A2A65F2B1}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{234A5A62-ADE3-4844-B553-A365DDEB4431}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -53,6 +53,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
+      DTS:ObjectName="DESKTOP-GKJ6PP6.aWDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GKJ6PP6;Initial Catalog=aWDWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}DESKTOP-GKJ6PP6.aWDWH;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{D6CF26FE-B71C-4C70-A2A8-B017075EFC4A}"
@@ -80,7 +92,7 @@
         <DTS:Executable
           DTS:refId="Package\DWH Container\Dim_Tempo"
           DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
+          DTS:Description="Data Flow Task Tempo"
           DTS:DTSID="{59FB408F-F81F-4ACA-951B-8EDB37BE8A65}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -107,7 +119,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset"></property>
+                      name="OpenRowset">[dimTempo]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -150,6 +162,8 @@
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim_Tempo\TempoDestination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -160,8 +174,79 @@
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].Columns[DataID]"
+                          cachedDataType="i4"
+                          cachedName="DataID"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[DataID]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[DataID]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].Columns[Mês]"
+                          cachedDataType="i4"
+                          cachedName="Mês"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Mês]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Mês]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].Columns[Ano]"
+                          cachedDataType="i4"
+                          cachedName="Ano"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Ano]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Ano]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].Columns[Mês Texto]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="Mês Texto"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Mês Texto]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Mês Texto]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].Columns[Semestre]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="17"
+                          cachedName="Semestre"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Semestre]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Semestre]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].Columns[Data]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="Data"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Data]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Data]" />
+                      </inputColumns>
                       <externalMetadataColumns
-                        isUsed="True" />
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[DataID]"
+                          dataType="i4"
+                          name="DataID" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Mês]"
+                          dataType="i4"
+                          name="Mês" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Ano]"
+                          dataType="i4"
+                          name="Ano" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Mês Texto]"
+                          dataType="wstr"
+                          length="30"
+                          name="Mês Texto" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Semestre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="17"
+                          name="Semestre" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input].ExternalColumns[Data]"
+                          dataType="wstr"
+                          length="4000"
+                          name="Data" />
+                      </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
@@ -214,7 +299,18 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+DISTINCT DataID,
+FORMAT(EndDate, 'dd/MM/yyyy') as Data, 
+MONTH(EndDate) as Mês, 
+YEAR(EndDate) as Ano, 
+DATENAME(MONTH, EndDate) AS 'Mês Texto',
+CASE
+            WHEN MONTH(EndDate) &gt;= 1 AND MONTH(EndDate) &lt;= 6 
+            THEN 'Primeiro Semestre'
+            ELSE 'Segundo Semestre'
+        END AS Semestre
+FROM            ProductionStaging order by Data</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -231,7 +327,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
@@ -240,6 +336,8 @@
                   <connections>
                     <connection
                       refId="Package\DWH Container\Dim_Tempo\TempoSource.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -247,14 +345,137 @@
                     <output
                       refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output]"
                       name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[DataID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[DataID]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[DataID]"
+                          name="DataID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Mês]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Mês]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Mês]"
+                          name="Mês"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Ano]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Ano]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Ano]"
+                          name="Ano"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Mês Texto]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Mês Texto]"
+                          length="30"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Mês Texto]"
+                          name="Mês Texto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Semestre]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Semestre]"
+                          length="17"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Semestre]"
+                          name="Semestre"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Data]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Data]"
+                          length="4000"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[Data]"
+                          name="Data"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
                       <externalMetadataColumns
-                        isUsed="True" />
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[DataID]"
+                          dataType="i4"
+                          name="DataID" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Mês]"
+                          dataType="i4"
+                          name="Mês" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Ano]"
+                          dataType="i4"
+                          name="Ano" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Mês Texto]"
+                          dataType="wstr"
+                          length="30"
+                          name="Mês Texto" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Semestre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="17"
+                          name="Semestre" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[Data]"
+                          dataType="wstr"
+                          length="4000"
+                          name="Data" />
+                      </externalMetadataColumns>
                     </output>
                     <output
                       refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output]"
                       isErrorOut="true"
                       name="OLE DB Source Error Output">
                       <outputColumns>
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Data]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Data]"
+                          name="Data" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[DataID]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[DataID]"
+                          name="DataID" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Mês]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Mês]"
+                          name="Mês" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Ano]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Ano]"
+                          name="Ano" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Mês Texto]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Mês Texto]"
+                          name="Mês Texto" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Semestre]"
+                          codePage="1252"
+                          dataType="str"
+                          length="17"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[Semestre]"
+                          name="Semestre" />
                         <outputColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -273,6 +494,13 @@
                   </outputs>
                 </component>
               </components>
+              <paths>
+                <path
+                  refId="Package\DWH Container\Dim_Tempo.Paths[OLE DB Source Output]"
+                  endId="Package\DWH Container\Dim_Tempo\TempoDestination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output]" />
+              </paths>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -282,6 +510,7 @@
       DTS:refId="Package\Staging Area Population"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{EB8D434B-B946-4748-BCF8-BF3EAB6F266C}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -804,6 +1033,16 @@ FROM            Production.Product INNER JOIN
       </DTS:Executables>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{643D06FE-CADC-42FB-9238-407B346E02B4}"
+      DTS:From="Package\Staging Area Population"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DWH Container" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -815,7 +1054,7 @@ FROM            Production.Product INNER JOIN
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="140,42"
           Id="Package\Staging Area Population\StagingArea"
@@ -838,6 +1077,40 @@ FROM            Production.Product INNER JOIN
           Size="245,158"
           Id="Package\DWH Container"
           TopLeft="551,158" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="401,228">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150,9"
+              Start="0,0"
+              End="142.5,9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="71,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71,0"
+                    Point2="75,0"
+                    Point3="75,4" />
+                  <mssgle:LineSegment
+                    End="75,5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75,5"
+                    Point2="75,9"
+                    Point3="79,9" />
+                  <mssgle:LineSegment
+                    End="142.5,9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -904,7 +1177,7 @@ FROM            Production.Product INNER JOIN
     design-time-name="Package\DWH Container\Dim_Tempo">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="148,42"
           Id="Package\DWH Container\Dim_Tempo\TempoSource"
@@ -913,8 +1186,51 @@ FROM            Production.Product INNER JOIN
           Size="168,42"
           Id="Package\DWH Container\Dim_Tempo\TempoDestination"
           TopLeft="437,51" />
+        <EdgeLayout
+          Id="Package\DWH Container\Dim_Tempo.Paths[OLE DB Source Output]"
+          TopLeft="290,71.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147,0"
+              Start="0,0"
+              End="139.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="139.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim_Tempo\TempoSource">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim_Tempo\TempoDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
