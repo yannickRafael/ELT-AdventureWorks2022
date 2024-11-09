@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="88"
-  DTS:VersionGUID="{3CDDD20B-A24D-4304-9D47-5B218478D81F}">
+  DTS:VersionBuild="89"
+  DTS:VersionGUID="{4CC4839D-EAC3-4DE1-9D8B-4A8760C66E62}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -87,7 +87,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Add columns"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -106,7 +106,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="No-Nullable"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -124,7 +124,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Remove Null"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -136,12 +136,13 @@
         <DTS:Executable
           DTS:refId="Package\CleanUp\Set-PrimaryKey"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Disabled="True"
           DTS:DTSID="{B7C7E329-7037-47B6-BD12-C8B784D31823}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Set-PrimaryKey"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1859,22 +1860,6 @@ FROM            StagingDestination</property>
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Facto\Connect FKs"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{5C60A2A9-348C-446D-96DC-70FC8744CC8F}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Connect FKs"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\Facto\FactoProducao"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
@@ -2260,36 +2245,7 @@ FROM            ProductionStaging</property>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Facto\Foreign Keys task"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Connects all tables on DWH using FK"
-          DTS:DTSID="{792FA46B-E824-4F35-A7B0-FB5B280C8EE3}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Foreign Keys task"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
-              SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="-- Alterar a coluna productId para não permitir valores nulos&#xA;ALTER TABLE ProductDestination&#xA;ALTER COLUMN productId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna workOrderId para não permitir valores nulos&#xA;ALTER TABLE WorkOrderDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna locationId para não permitir valores nulos&#xA;ALTER TABLE LocalizacaoDestination&#xA;ALTER COLUMN locationId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna dateId para não permitir valores nulos&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN dateId INT NOT NULL;&#xA;&#xA;-- Adicionar chaves primárias às tabelas&#xA;ALTER TABLE ProductDestination&#xA;ADD CONSTRAINT PK_ProductDestination PRIMARY KEY (productId);&#xA;&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD CONSTRAINT PK_WorkOrderDestination PRIMARY KEY (workOrderId);&#xA;&#xA;ALTER TABLE LocalizacaoDestination&#xA;ADD CONSTRAINT PK_LocalizacaoDestination PRIMARY KEY (locationId);&#xA;&#xA;ALTER TABLE DateDestination&#xA;ADD CONSTRAINT PK_DateDestination PRIMARY KEY (dateId);&#xA;&#xA;-- Adicionar nova coluna para ligação na tabela DateDestination&#xA;ALTER TABLE DateDestination&#xA;ADD workOrderId INT;&#xA;&#xA;-- Adicionar coluna productId em WorkOrderDestination para referência&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD productId INT;&#xA;&#xA;-- Adicionar coluna locationId em WorkOrderDestination para referência&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD locationId INT;&#xA;&#xA;-- Estabelecer relacionamento entre WorkOrderDestination e ProductDestination&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD CONSTRAINT FK_WorkOrderDestination_ProductDestination&#xA;FOREIGN KEY (productId)&#xA;REFERENCES ProductDestination(productId);&#xA;&#xA;-- Estabelecer relacionamento entre WorkOrderDestination e LocalizacaoDestination&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD CONSTRAINT FK_WorkOrderDestination_LocalizacaoDestination&#xA;FOREIGN KEY (locationId)&#xA;REFERENCES LocalizacaoDestination(locationId);&#xA;&#xA;-- Estabelecer relacionamento entre DateDestination e WorkOrderDestination&#xA;ALTER TABLE DateDestination&#xA;ADD CONSTRAINT FK_DateDestination_WorkOrderDestination&#xA;FOREIGN KEY (workOrderId)&#xA;REFERENCES WorkOrderDestination(workOrderId);&#xA;&#xA;-- Estabelecer relacionamento entre LocalizacaoDestination e WorkOrderDestination&#xA;ALTER TABLE LocalizacaoDestination&#xA;ADD CONSTRAINT FK_LocalizacaoDestination_WorkOrderDestination&#xA;FOREIGN KEY (workOrderId)&#xA;REFERENCES WorkOrderDestination(workOrderId);&#xA;"
-              SQLTask:TypeConversionMode="None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
       </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Facto.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{912EBFBB-5C68-40A3-B81E-EABA8E1445C2}"
-          DTS:From="Package\Facto\FactoProducao"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\Facto\Connect FKs" />
-      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Staging Area Population"
@@ -3331,51 +3287,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           Id="Package\DWH Container"
           TopLeft="99.8888888888889,240.222222222222" />
         <NodeLayout
-          Size="142,42"
-          Id="Package\Facto\Connect FKs"
-          TopLeft="105.616161616161,88.4343434343435" />
-        <NodeLayout
           Size="154,42"
           Id="Package\Facto\FactoProducao"
-          TopLeft="87.0000000000001,140.111111111111" />
-        <EdgeLayout
-          Id="Package\Facto.PrecedenceConstraints[Constraint]"
-          TopLeft="87.0000000000001,161.111111111111">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="18.6161616161613,-51.6767676767676"
-              Start="0,0"
-              End="11.1161616161613,-51.6767676767676">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,-4" />
-                  <mssgle:LineSegment
-                    End="-22.5,-47.6767676767676" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,-47.6767676767676"
-                    Point2="-22.5,-51.6767676767676"
-                    Point3="-18.5,-51.6767676767676" />
-                  <mssgle:LineSegment
-                    End="11.1161616161613,-51.6767676767676" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Facto\Foreign Keys task"
-          TopLeft="111.055555555556,52.2421124828532" />
+          TopLeft="91,72.1111111111111" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
