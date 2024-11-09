@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{93342C4B-C18A-4DD8-8EC6-A222B4C1E2EE}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{72666EF5-EC33-4E9A-BF79-F9106D084DEB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -93,6 +93,7 @@
           DTS:refId="Package\DWH Container\Dim Localização"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{8FE0975B-FE18-4142-BD14-CD21E583665E}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -399,6 +400,7 @@ FROM            ProductionStaging</property>
           DTS:refId="Package\DWH Container\Dim Produto"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{099F9329-E94A-4D5A-BECA-61519ED1B1B6}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -674,9 +676,311 @@ FROM            ProductionStaging</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\DWH Container\dim WorkOrder"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{58678C3A-B9E6-4E1B-932E-DCD5744A54ED}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="dim WorkOrder"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="WorkOrderDestination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dimWorkOrder]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].Columns[WorkOrderID]"
+                          cachedDataType="i4"
+                          cachedName="WorkOrderID"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]" />
+                        <inputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].Columns[StockedQty]"
+                          cachedDataType="i4"
+                          cachedName="StockedQty"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[StockedQty]" />
+                        <inputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].Columns[ScrappedQty]"
+                          cachedDataType="i2"
+                          cachedName="ScrappedQty"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
+                          dataType="i4"
+                          name="WorkOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
+                          dataType="i4"
+                          name="StockedQty" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
+                          dataType="i2"
+                          name="ScrappedQty" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWH Container\dim WorkOrder\WorkOrderSource"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="WorkOrderSource"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT      DISTINCT WorkOrderID,   StockedQty, ScrappedQty
+FROM            ProductionStaging ORDER BY WorkOrderID</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
+                          name="WorkOrderID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[StockedQty]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[StockedQty]"
+                          name="StockedQty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
+                          name="ScrappedQty"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
+                          dataType="i4"
+                          name="WorkOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
+                          dataType="i4"
+                          name="StockedQty" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
+                          dataType="i2"
+                          name="ScrappedQty" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
+                          name="WorkOrderID" />
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
+                          name="StockedQty" />
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
+                          dataType="i2"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
+                          name="ScrappedQty" />
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DWH Container\dim WorkOrder.Paths[OLE DB Source Output]"
+                  endId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DWH Container\dim WorkOrder\WorkOrderSource.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\DWH Container\Dim_Tempo"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task Tempo"
+          DTS:Disabled="True"
           DTS:DTSID="{59FB408F-F81F-4ACA-951B-8EDB37BE8A65}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -1106,6 +1410,14 @@ FROM            ProductionStaging order by Data</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\DWH Container\Dim Produto" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DWH Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E53D2EEB-D9EA-4801-BD97-C4A94EFC9613}"
+          DTS:From="Package\DWH Container\Dim Produto"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\DWH Container\dim WorkOrder" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -1117,7 +1429,418 @@ FROM            ProductionStaging order by Data</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Facto">
       <DTS:Variables />
-      <DTS:Executables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Facto\Connect FKs"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5C60A2A9-348C-446D-96DC-70FC8744CC8F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Connect FKs"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Facto\FactoProducao"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{EC09B25A-E8B2-4472-9DC5-3C50C4416904}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FactoProducao"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Facto\FactoProducao\factProducao"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="factProducao"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[factoProducao]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Facto\FactoProducao\factProducao.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[WorkOrderID]"
+                          cachedDataType="i4"
+                          cachedName="WorkOrderID"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]" />
+                        <inputColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[ScrappedQty]"
+                          cachedDataType="i2"
+                          cachedName="ScrappedQty"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]" />
+                        <inputColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[StockedQty]"
+                          cachedDataType="i4"
+                          cachedName="StockedQty"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[StockedQty]" />
+                        <inputColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[LocationID]"
+                          cachedDataType="i2"
+                          cachedName="LocationID"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[LocationID]" />
+                        <inputColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                          cachedDataType="i4"
+                          cachedName="ProductID"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                        <inputColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[DataID]"
+                          cachedDataType="i4"
+                          cachedName="DataID"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[DataID]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[DataID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
+                          dataType="i4"
+                          name="WorkOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
+                          dataType="i2"
+                          name="ScrappedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
+                          dataType="i4"
+                          name="StockedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                          dataType="i2"
+                          name="LocationID" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          dataType="i4"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[DataID]"
+                          dataType="i4"
+                          name="DataID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Facto\FactoProducao\factProducao.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Facto\FactoProducao\factProducao.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Facto\FactoProducao\factProducao.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Facto\FactoProducao\ProducaoSource"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="ProducaoSource"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        WorkOrderID, ScrappedQty, StockedQty, LocationID, ProductID, DataID
+FROM            ProductionStaging</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Facto\FactoProducao\ProducaoSource.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GKJ6PP6.aWStaging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
+                          name="WorkOrderID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
+                          name="ScrappedQty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[StockedQty]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[StockedQty]"
+                          name="StockedQty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[LocationID]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[LocationID]"
+                          name="LocationID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          name="ProductID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[DataID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[DataID]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[DataID]"
+                          name="DataID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
+                          dataType="i4"
+                          name="WorkOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
+                          dataType="i2"
+                          name="ScrappedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
+                          dataType="i4"
+                          name="StockedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                          dataType="i2"
+                          name="LocationID" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          dataType="i4"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[DataID]"
+                          dataType="i4"
+                          name="DataID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
+                          dataType="i4"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
+                          name="WorkOrderID" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
+                          dataType="i2"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
+                          name="ScrappedQty" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
+                          dataType="i4"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
+                          name="StockedQty" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                          dataType="i2"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                          name="LocationID" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          dataType="i4"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          name="ProductID" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[DataID]"
+                          dataType="i4"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[DataID]"
+                          name="DataID" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Facto\FactoProducao.Paths[OLE DB Source Output]"
+                  endId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Facto.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{912EBFBB-5C68-40A3-B81E-EABA8E1445C2}"
+          DTS:From="Package\Facto\FactoProducao"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Facto\Connect FKs" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Staging Area Population"
@@ -1655,6 +2378,14 @@ FROM            Production.Product INNER JOIN
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\DWH Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DDBAEDBC-B28C-4CA4-8A7F-535D860F2FFF}"
+      DTS:From="Package\DWH Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Facto" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1748,11 +2479,49 @@ FROM            Production.Product INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\DWH Container\dim WorkOrder"
+          TopLeft="80,244" />
+        <EdgeLayout
+          Id="Package\DWH Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="107,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.5,30"
+              Start="0,0"
+              End="49.5,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="45.5,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.5,15"
+                    Point2="49.5,15"
+                    Point3="49.5,19" />
+                  <mssgle:LineSegment
+                    End="49.5,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="284,250"
-          Size="284,293"
+          PanelSize="284,341"
+          Size="284,384"
           Id="Package\DWH Container"
           TopLeft="551,158" />
         <NodeLayout
@@ -1772,9 +2541,9 @@ FROM            Production.Product INNER JOIN
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="150,76.5"
+              EndConnector="150,122"
               Start="0,0"
-              End="142.5,76.5">
+              End="142.5,122">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1785,13 +2554,55 @@ FROM            Production.Product INNER JOIN
                     Point2="75,0"
                     Point3="75,4" />
                   <mssgle:LineSegment
-                    End="75,72.5" />
+                    End="75,118" />
                   <mssgle:CubicBezierSegment
-                    Point1="75,72.5"
-                    Point2="75,76.5"
-                    Point3="79,76.5" />
+                    Point1="75,118"
+                    Point2="75,122"
+                    Point3="79,122" />
                   <mssgle:LineSegment
-                    End="142.5,76.5" />
+                    End="142.5,122" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Facto\FactoProducao"
+          TopLeft="27,19" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Facto\Connect FKs"
+          TopLeft="96.7272727272726,99.5454545454546" />
+        <EdgeLayout
+          Id="Package\Facto.PrecedenceConstraints[Constraint]"
+          TopLeft="104,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.7272727272726,38.5454545454546"
+              Start="0,0"
+              End="63.7272727272726,31.0454545454546">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.2727272727273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.2727272727273"
+                    Point2="0,19.2727272727273"
+                    Point3="4,19.2727272727273" />
+                  <mssgle:LineSegment
+                    End="59.7272727272726,19.2727272727273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.7272727272726,19.2727272727273"
+                    Point2="63.7272727272726,19.2727272727273"
+                    Point3="63.7272727272726,23.2727272727273" />
+                  <mssgle:LineSegment
+                    End="63.7272727272726,31.0454545454546" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1803,10 +2614,44 @@ FROM            Production.Product INNER JOIN
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="205,55"
-          Size="205,98"
+          PanelSize="287,197"
+          Size="287,240"
           Id="Package\Facto"
-          TopLeft="947.142857142857,202.857142857143" />
+          TopLeft="876.142857142857,351.857142857143" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="835,350">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.1428571428571,121.857142857143"
+              Start="0,0"
+              End="33.6428571428571,121.857142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="16.5714285714286,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5714285714286,0"
+                    Point2="20.5714285714286,0"
+                    Point3="20.5714285714286,4" />
+                  <mssgle:LineSegment
+                    End="20.5714285714286,117.857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5714285714286,117.857142857143"
+                    Point2="20.5714285714286,121.857142857143"
+                    Point3="24.5714285714286,121.857142857143" />
+                  <mssgle:LineSegment
+                    End="33.6428571428571,121.857142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1935,7 +2780,7 @@ FROM            Production.Product INNER JOIN
     design-time-name="Package\DWH Container\Dim_Tempo">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="148,42"
           Id="Package\DWH Container\Dim_Tempo\TempoSource"
@@ -1963,7 +2808,9 @@ FROM            Production.Product INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1994,15 +2841,15 @@ FROM            Production.Product INNER JOIN
     design-time-name="Package\Staging Area Population\StagingArea">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="172,62"
-          Id="Package\Staging Area Population\StagingArea\StagingDestination"
-          TopLeft="437,69" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="165,42"
           Id="Package\Staging Area Population\StagingArea\StagingExtraction"
           TopLeft="141,76" />
+        <NodeLayout
+          Size="172,62"
+          Id="Package\Staging Area Population\StagingArea\StagingDestination"
+          TopLeft="437,69" />
         <EdgeLayout
           Id="Package\Staging Area Population\StagingArea.Paths[OLE DB Source Output]"
           TopLeft="306,98.5">
@@ -2022,7 +2869,9 @@ FROM            Production.Product INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2067,6 +2916,148 @@ FROM            Production.Product INNER JOIN
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Facto\FactoProducao">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Facto\FactoProducao\ProducaoSource"
+          TopLeft="148,49" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Facto\FactoProducao\factProducao"
+          TopLeft="343,168" />
+        <EdgeLayout
+          Id="Package\Facto\FactoProducao.Paths[OLE DB Source Output]"
+          TopLeft="228.5,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="186.5,77"
+              Start="0,0"
+              End="186.5,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="182.5,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="182.5,38.5"
+                    Point2="186.5,38.5"
+                    Point3="186.5,42.5" />
+                  <mssgle:LineSegment
+                    End="186.5,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Facto\FactoProducao\ProducaoSource">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Facto\FactoProducao\factProducao">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DWH Container\dim WorkOrder">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DWH Container\dim WorkOrder\WorkOrderSource"
+          TopLeft="234,65" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\DWH Container\dim WorkOrder\WorkOrderDestination"
+          TopLeft="526,115" />
+        <EdgeLayout
+          Id="Package\DWH Container\dim WorkOrder.Paths[OLE DB Source Output]"
+          TopLeft="402,86">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,50"
+              Start="0,0"
+              End="116.5,50">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="58,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58,0"
+                    Point2="62,0"
+                    Point3="62,4" />
+                  <mssgle:LineSegment
+                    End="62,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62,46"
+                    Point2="62,50"
+                    Point3="66,50" />
+                  <mssgle:LineSegment
+                    End="116.5,50" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\dim WorkOrder\WorkOrderSource">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\dim WorkOrder\WorkOrderDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
