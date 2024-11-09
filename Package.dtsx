@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{CF054616-9346-4684-BDC2-B9A8C22B853B}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{1FB07058-531F-4B06-B1F8-46C8D1807E56}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1007,6 +1007,7 @@ FROM            StagingDestination</property>
           DTS:refId="Package\DWH Container\dim WorkOrder"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{58678C3A-B9E6-4E1B-932E-DCD5744A54ED}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -1320,11 +1321,11 @@ FROM            StagingDestination</property>
               version="1">
               <components>
                 <component
-                  refId="Package\DWH Container\Dim_Tempo\OLE DB Destination"
+                  refId="Package\DWH Container\Dim_Tempo\DateDestination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="OLE DB Destination"
+                  name="DateDestination"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -1335,7 +1336,7 @@ FROM            StagingDestination</property>
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[TempoDestination]</property>
+                      name="OpenRowset">[DateDestination]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1377,112 +1378,110 @@ FROM            StagingDestination</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[AdventureWorks2022_Connection]"
-                      connectionManagerRefId="Package.ConnectionManagers[AdventureWorks2022_Connection]"
+                      refId="Package\DWH Container\Dim_Tempo\DateDestination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dataId]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].Columns[dataId]"
                           cachedDataType="i4"
                           cachedName="dataId"
-                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dataId]"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[dataId]"
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[dataId]" />
                         <inputColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[data]"
-                          cachedDataType="wstr"
-                          cachedLength="4000"
-                          cachedName="data"
-                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[data]"
-                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[data]" />
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].Columns[endDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="endDate"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[endDate]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[endDate]" />
                         <inputColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mes]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].Columns[mes]"
                           cachedDataType="i4"
                           cachedName="mes"
-                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mes]"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[mes]"
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[mes]" />
                         <inputColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ano]"
-                          cachedDataType="i4"
-                          cachedName="ano"
-                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ano]"
-                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[ano]" />
-                        <inputColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mesName]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].Columns[mesName]"
                           cachedDataType="wstr"
                           cachedLength="30"
                           cachedName="mesName"
-                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mesName]"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[mesName]"
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[mesName]" />
                         <inputColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[semestre]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].Columns[ano]"
+                          cachedDataType="i4"
+                          cachedName="ano"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[ano]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[ano]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].Columns[semestre]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="17"
+                          cachedLength="15"
                           cachedName="semestre"
-                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[semestre]"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[semestre]"
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[semestre]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dataId]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[dataId]"
                           dataType="i4"
                           name="dataId" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[data]"
-                          dataType="wstr"
-                          length="4000"
-                          name="data" />
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[endDate]"
+                          dataType="dbTimeStamp"
+                          name="endDate" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mes]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[mes]"
                           dataType="i4"
                           name="mes" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ano]"
-                          dataType="i4"
-                          name="ano" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mesName]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[mesName]"
                           dataType="wstr"
                           length="30"
                           name="mesName" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[semestre]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[ano]"
+                          dataType="i4"
+                          name="ano" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[semestre]"
                           codePage="1252"
                           dataType="str"
-                          length="17"
+                          length="15"
                           name="semestre" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\DWH Container\Dim_Tempo\DateDestination.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\DWH Container\Dim_Tempo\DateDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\DWH Container\Dim_Tempo\DateDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1515,11 +1514,9 @@ FROM            StagingDestination</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
-                         dataId, FORMAT(endDate, 'dd/MM/yyyy') AS data, MONTH(endDate) AS mes, YEAR(endDate) AS ano, DATENAME([MONTH], endDate) AS mesName, CASE WHEN MONTH(EndDate) &gt;= 1 AND MONTH(EndDate) 
-                         &lt;= 6 THEN 'Primeiro Semestre' ELSE 'Segundo Semestre' END AS semestre
-FROM            StagingDestination
-ORDER BY data</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dataId, endDate, MONTH(endDate) AS mes, DATENAME([MONTH], endDate) AS mesName, YEAR(endDate) AS ano, CASE WHEN MONTH(endDate) &gt;= 1 AND MONTH(endDate) 
+                         &lt;= 6 THEN 'First Semester' ELSE 'Second Semester' END AS semestre
+FROM            StagingDestination</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -1565,14 +1562,13 @@ ORDER BY data</property>
                           name="dataId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[data]"
-                          dataType="wstr"
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[endDate]"
+                          dataType="dbTimeStamp"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[data]"
-                          length="4000"
-                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[data]"
-                          name="data"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[endDate]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[endDate]"
+                          name="endDate"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[mes]"
@@ -1582,15 +1578,6 @@ ORDER BY data</property>
                           externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[mes]"
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[mes]"
                           name="mes"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[ano]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[ano]"
-                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[ano]"
-                          name="ano"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[mesName]"
@@ -1603,13 +1590,22 @@ ORDER BY data</property>
                           name="mesName"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[ano]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[ano]"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[ano]"
+                          name="ano"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[semestre]"
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[semestre]"
-                          length="17"
+                          length="15"
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].Columns[semestre]"
                           name="semestre"
                           truncationRowDisposition="FailComponent" />
@@ -1621,28 +1617,27 @@ ORDER BY data</property>
                           dataType="i4"
                           name="dataId" />
                         <externalMetadataColumn
-                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[data]"
-                          dataType="wstr"
-                          length="4000"
-                          name="data" />
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[endDate]"
+                          dataType="dbTimeStamp"
+                          name="endDate" />
                         <externalMetadataColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[mes]"
                           dataType="i4"
                           name="mes" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[ano]"
-                          dataType="i4"
-                          name="ano" />
                         <externalMetadataColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[mesName]"
                           dataType="wstr"
                           length="30"
                           name="mesName" />
                         <externalMetadataColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[ano]"
+                          dataType="i4"
+                          name="ano" />
+                        <externalMetadataColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output].ExternalColumns[semestre]"
                           codePage="1252"
                           dataType="str"
-                          length="17"
+                          length="15"
                           name="semestre" />
                       </externalMetadataColumns>
                     </output>
@@ -1657,21 +1652,15 @@ ORDER BY data</property>
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[dataId]"
                           name="dataId" />
                         <outputColumn
-                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[data]"
-                          dataType="wstr"
-                          length="4000"
-                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[data]"
-                          name="data" />
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[endDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[endDate]"
+                          name="endDate" />
                         <outputColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[mes]"
                           dataType="i4"
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[mes]"
                           name="mes" />
-                        <outputColumn
-                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[ano]"
-                          dataType="i4"
-                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[ano]"
-                          name="ano" />
                         <outputColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[mesName]"
                           dataType="wstr"
@@ -1679,10 +1668,15 @@ ORDER BY data</property>
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[mesName]"
                           name="mesName" />
                         <outputColumn
+                          refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[ano]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[ano]"
+                          name="ano" />
+                        <outputColumn
                           refId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[semestre]"
                           codePage="1252"
                           dataType="str"
-                          length="17"
+                          length="15"
                           lineageId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Error Output].Columns[semestre]"
                           name="semestre" />
                         <outputColumn
@@ -1706,7 +1700,7 @@ ORDER BY data</property>
               <paths>
                 <path
                   refId="Package\DWH Container\Dim_Tempo.Paths[OLE DB Source Output]"
-                  endId="Package\DWH Container\Dim_Tempo\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  endId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\DWH Container\Dim_Tempo\TempoSource.Outputs[OLE DB Source Output]" />
               </paths>
@@ -2150,6 +2144,21 @@ FROM            ProductionStaging</property>
                   startId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output]" />
               </paths>
             </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Facto\Foreign Keys task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{792FA46B-E824-4F35-A7B0-FB5B280C8EE3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreign Keys task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -3058,6 +3067,14 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3867C8F5-33FD-4E0F-A85D-684DBD6817A1}"
+      DTS:From="Package\Staging Area Population"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DWH Container" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
       DTS:DTSID="{DDBAEDBC-B28C-4CA4-8A7F-535D860F2FFF}"
@@ -3077,7 +3094,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="160,42"
           Id="Package\DWH Container\Dim Localização"
@@ -3198,45 +3215,45 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="47"
-          IsExpanded="True"
+          IsExpanded="False"
           PanelSize="284,341"
-          Size="284,388"
+          Size="284,47"
           Id="Package\DWH Container"
-          TopLeft="551,158" />
+          TopLeft="99.8888888888889,240.222222222222" />
         <NodeLayout
           Size="142,42"
           Id="Package\Facto\Connect FKs"
-          TopLeft="96.7272727272726,99.5454545454546" />
+          TopLeft="105.616161616161,88.4343434343435" />
         <NodeLayout
           Size="154,42"
           Id="Package\Facto\FactoProducao"
-          TopLeft="27,19" />
+          TopLeft="87.0000000000001,140.111111111111" />
         <EdgeLayout
           Id="Package\Facto.PrecedenceConstraints[Constraint]"
-          TopLeft="104,61">
+          TopLeft="87.0000000000001,161.111111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="63.7272727272726,38.5454545454546"
+              EndConnector="18.6161616161613,-51.6767676767676"
               Start="0,0"
-              End="63.7272727272726,31.0454545454546">
+              End="11.1161616161613,-51.6767676767676">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.2727272727273" />
+                    End="-18.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.2727272727273"
-                    Point2="0,19.2727272727273"
-                    Point3="4,19.2727272727273" />
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,-4" />
                   <mssgle:LineSegment
-                    End="59.7272727272726,19.2727272727273" />
+                    End="-22.5,-47.6767676767676" />
                   <mssgle:CubicBezierSegment
-                    Point1="59.7272727272726,19.2727272727273"
-                    Point2="63.7272727272726,19.2727272727273"
-                    Point3="63.7272727272726,23.2727272727273" />
+                    Point1="-22.5,-47.6767676767676"
+                    Point2="-22.5,-51.6767676767676"
+                    Point3="-18.5,-51.6767676767676" />
                   <mssgle:LineSegment
-                    End="63.7272727272726,31.0454545454546" />
+                    End="11.1161616161613,-51.6767676767676" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3245,13 +3262,17 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Facto\Foreign Keys task"
+          TopLeft="23.2777777777777,8.90877914951989" />
         <ContainerLayout
           HeaderHeight="43"
-          IsExpanded="False"
-          PanelSize="287,197"
-          Size="287,43"
+          IsExpanded="True"
+          PanelSize="287,237"
+          Size="287,280"
           Id="Package\Facto"
-          TopLeft="876.142857142857,351.857142857143" />
+          TopLeft="539.47619047619,181.857142857143" />
         <NodeLayout
           Size="140,42"
           Id="Package\Staging Area Population\StagingArea"
@@ -3265,30 +3286,52 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           TopLeft="80,142" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="835,352">
+          TopLeft="383.888888888889,263.722222222222">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="41.142857142857,21.357142857143"
+              EndConnector="155.587301587301,58.1349206349207"
               Start="0,0"
-              End="33.642857142857,21.357142857143">
+              End="148.087301587301,58.1349206349207">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="16.5714285714285,0" />
+                    End="73.7936507936507,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="16.5714285714285,0"
-                    Point2="20.5714285714285,0"
-                    Point3="20.5714285714285,4" />
+                    Point1="73.7936507936507,0"
+                    Point2="77.7936507936507,0"
+                    Point3="77.7936507936507,4" />
                   <mssgle:LineSegment
-                    End="20.5714285714285,17.357142857143" />
+                    End="77.7936507936507,54.1349206349207" />
                   <mssgle:CubicBezierSegment
-                    Point1="20.5714285714285,17.357142857143"
-                    Point2="20.5714285714285,21.357142857143"
-                    Point3="24.5714285714285,21.357142857143" />
+                    Point1="77.7936507936507,54.1349206349207"
+                    Point2="77.7936507936507,58.1349206349207"
+                    Point3="81.7936507936507,58.1349206349207" />
                   <mssgle:LineSegment
-                    End="33.642857142857,21.357142857143" />
+                    End="148.087301587301,58.1349206349207" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="241.194444444444,185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.2222222222222"
+              Start="0,0"
+              End="0,47.7222222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.7222222222222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3481,27 +3524,39 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="177,42"
-          Id="Package\DWH Container\Dim_Tempo\OLE DB Destination"
-          TopLeft="611.5,38.5" />
-        <NodeLayout
           Size="148,42"
           Id="Package\DWH Container\Dim_Tempo\TempoSource"
-          TopLeft="418,40" />
+          TopLeft="140.5,47.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DWH Container\Dim_Tempo\DateDestination"
+          TopLeft="375.5,38.5" />
         <EdgeLayout
           Id="Package\DWH Container\Dim_Tempo.Paths[OLE DB Source Output]"
-          TopLeft="566,60.25">
+          TopLeft="288.5,68.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="45.5,0"
+              EndConnector="87,-9"
               Start="0,0"
-              End="38,0">
+              End="79.5,-9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="38,0" />
+                    End="39.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.5,0"
+                    Point2="43.5,0"
+                    Point3="43.5,-4" />
+                  <mssgle:LineSegment
+                    End="43.5,-5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.5,-5"
+                    Point2="43.5,-9"
+                    Point3="47.5,-9" />
+                  <mssgle:LineSegment
+                    End="79.5,-9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3517,7 +3572,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\Facto\FactoProducao">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="161,42"
           Id="Package\Facto\FactoProducao\ProducaoSource"
@@ -3557,9 +3612,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3648,19 +3701,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim_Tempo\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\DWH Container\Dim Localização\LocalizacaoDestination">
     <Properties>
       <Property>
@@ -3675,6 +3715,27 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DWH Container\Dim Produto\ProductDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim_Tempo\TempoSource">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim_Tempo\DateDestination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
