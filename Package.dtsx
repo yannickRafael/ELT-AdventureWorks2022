@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="91"
-  DTS:VersionGUID="{5D2AA9C9-95C6-477B-9184-83193F3D183A}">
+  DTS:VersionBuild="95"
+  DTS:VersionGUID="{095298F7-A441-48FB-8BB4-A9FDC6769E98}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,15 +100,19 @@
           DTS:refId="Package\CleanUp\Connect FK"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{81083443-0419-460B-9ADE-606ABCB4F34D}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Connect FK"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
-            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="ALTER TABLE WorkOrderDestination&#xA;ADD CONSTRAINT FK_WorkOrderDestination_ProductDestination&#xA;FOREIGN KEY (productId)&#xA;REFERENCES ProductDestination(productId);&#xA;&#xA;&#xA;ALTER TABLE DateDestination&#xA;ADD CONSTRAINT FK_DateDestination_WorkOrderDestination&#xA;FOREIGN KEY (workOrderId)&#xA;REFERENCES WorkOrderDestination(workOrderId);&#xA;&#xA;ALTER TABLE LocalizacaoDestination&#xA;ADD CONSTRAINT FK_LocalizacaoDestination_WorkOrderDestination&#xA;FOREIGN KEY (workOrderId)&#xA;REFERENCES WorkOrderDestination(workOrderId);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -192,6 +196,14 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\CleanUp\Set-PrimaryKey" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CleanUp.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{9C5946CD-7B61-4DE6-8569-D9091F3AED71}"
+          DTS:From="Package\CleanUp\Set-PrimaryKey"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\CleanUp\Connect FK" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -1905,7 +1917,7 @@ FROM            StagingDestination</property>
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[factoProducao]</property>
+                      name="OpenRowset">[factProducao]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1962,68 +1974,48 @@ FROM            StagingDestination</property>
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[WorkOrderID]"
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[dataId]"
                           cachedDataType="i4"
-                          cachedName="WorkOrderID"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]" />
+                          cachedName="dataId"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[dataId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[dataId]" />
                         <inputColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[ScrappedQty]"
-                          cachedDataType="i2"
-                          cachedName="ScrappedQty"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]" />
-                        <inputColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[StockedQty]"
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[workOrderId]"
                           cachedDataType="i4"
-                          cachedName="StockedQty"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[StockedQty]" />
+                          cachedName="workOrderId"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[workOrderId]" />
                         <inputColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[LocationID]"
-                          cachedDataType="i2"
-                          cachedName="LocationID"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[LocationID]" />
-                        <inputColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[locationId]"
                           cachedDataType="i4"
-                          cachedName="ProductID"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                          cachedName="locationId"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[locationId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[locationId]" />
                         <inputColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[DataID]"
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[productId]"
                           cachedDataType="i4"
-                          cachedName="DataID"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[DataID]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[DataID]" />
+                          cachedName="productId"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[productId]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[WorkOrderID]"
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[dataId]"
                           dataType="i4"
-                          name="WorkOrderID" />
+                          name="dataId" />
                         <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[ScrappedQty]"
-                          dataType="i2"
-                          name="ScrappedQty" />
-                        <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
                           dataType="i4"
-                          name="StockedQty" />
+                          name="workOrderId" />
                         <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
-                          dataType="i2"
-                          name="LocationID" />
-                        <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[locationId]"
                           dataType="i4"
-                          name="ProductID" />
+                          name="locationId" />
                         <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[DataID]"
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
                           dataType="i4"
-                          name="DataID" />
+                          name="productId" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2077,8 +2069,11 @@ FROM            StagingDestination</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        WorkOrderID, ScrappedQty, StockedQty, LocationID, ProductID, DataID
-FROM            ProductionStaging</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        DateDestination.dataId, WorkOrderDestination.workOrderId, LocalizacaoDestination.locationId, ProductDestination.productId
+FROM            DateDestination INNER JOIN
+                         LocalizacaoDestination ON DateDestination.workOrderId = LocalizacaoDestination.workOrderId INNER JOIN
+                         WorkOrderDestination ON DateDestination.workOrderId = WorkOrderDestination.workOrderId AND LocalizacaoDestination.workOrderId = WorkOrderDestination.workOrderId INNER JOIN
+                         ProductDestination ON WorkOrderDestination.productId = ProductDestination.productId</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2104,8 +2099,8 @@ FROM            ProductionStaging</property>
                   <connections>
                     <connection
                       refId="Package\Facto\FactoProducao\ProducaoSource.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[aWStaging_Connection]"
-                      connectionManagerRefId="Package.ConnectionManagers[aWStaging_Connection]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2115,86 +2110,60 @@ FROM            ProductionStaging</property>
                       name="OLE DB Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[dataId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[WorkOrderID]"
-                          name="WorkOrderID"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[dataId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[dataId]"
+                          name="dataId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
-                          dataType="i2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ScrappedQty]"
-                          name="ScrappedQty"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[StockedQty]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[workOrderId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[StockedQty]"
-                          name="StockedQty"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[workOrderId]"
+                          name="workOrderId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[LocationID]"
-                          dataType="i2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[LocationID]"
-                          name="LocationID"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[locationId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[ProductID]"
-                          name="ProductID"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[locationId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[locationId]"
+                          name="locationId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[DataID]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[productId]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[DataID]"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[DataID]"
-                          name="DataID"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[productId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[productId]"
+                          name="productId"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderID]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[dataId]"
                           dataType="i4"
-                          name="WorkOrderID" />
+                          name="dataId" />
                         <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[ScrappedQty]"
-                          dataType="i2"
-                          name="ScrappedQty" />
-                        <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
                           dataType="i4"
-                          name="StockedQty" />
+                          name="workOrderId" />
                         <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
-                          dataType="i2"
-                          name="LocationID" />
-                        <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[locationId]"
                           dataType="i4"
-                          name="ProductID" />
+                          name="locationId" />
                         <externalMetadataColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[DataID]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[productId]"
                           dataType="i4"
-                          name="DataID" />
+                          name="productId" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -2203,35 +2172,25 @@ FROM            ProductionStaging</property>
                       name="OLE DB Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[dataId]"
                           dataType="i4"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[WorkOrderID]"
-                          name="WorkOrderID" />
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[dataId]"
+                          name="dataId" />
                         <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
-                          dataType="i2"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ScrappedQty]"
-                          name="ScrappedQty" />
-                        <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
                           dataType="i4"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
-                          name="StockedQty" />
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
+                          name="workOrderId" />
                         <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[LocationID]"
-                          dataType="i2"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[LocationID]"
-                          name="LocationID" />
-                        <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[locationId]"
                           dataType="i4"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ProductID]"
-                          name="ProductID" />
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[locationId]"
+                          name="locationId" />
                         <outputColumn
-                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[DataID]"
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[productId]"
                           dataType="i4"
-                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[DataID]"
-                          name="DataID" />
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[productId]"
+                          name="productId" />
                         <outputColumn
                           refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -3163,6 +3122,22 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\DWH Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{28CA9AD1-96B2-42C9-8880-4F6C1644D3C2}"
+      DTS:From="Package\DWH Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\CleanUp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6996EFB4-4E28-4400-B954-2547B61058B3}"
+      DTS:From="Package\CleanUp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Facto" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3443,6 +3418,40 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           Size="137,42"
           Id="Package\CleanUp\Connect FK"
           TopLeft="126.714285714286,266" />
+        <EdgeLayout
+          Id="Package\CleanUp.PrecedenceConstraints[Constraint 3]"
+          TopLeft="102.488733488733,196.119658119658">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.7255522255523,69.880341880342"
+              Start="0,0"
+              End="92.7255522255523,62.380341880342">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.940170940171" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.940170940171"
+                    Point2="0,34.940170940171"
+                    Point3="4,34.940170940171" />
+                  <mssgle:LineSegment
+                    End="88.7255522255523,34.940170940171" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88.7255522255523,34.940170940171"
+                    Point2="92.7255522255523,34.940170940171"
+                    Point3="92.7255522255523,38.940170940171" />
+                  <mssgle:LineSegment
+                    End="92.7255522255523,62.380341880342" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -3450,6 +3459,74 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           Size="339,406"
           Id="Package\CleanUp"
           TopLeft="548.527777777778,121.472222222222" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="383.888888888889,263.722222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164.638888888889,60.7499999999999"
+              Start="0,0"
+              End="157.138888888889,60.7499999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.3194444444444,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.3194444444444,0"
+                    Point2="82.3194444444444,0"
+                    Point3="82.3194444444444,4" />
+                  <mssgle:LineSegment
+                    End="82.3194444444444,56.7499999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.3194444444444,56.7499999999999"
+                    Point2="82.3194444444444,60.7499999999999"
+                    Point3="86.3194444444444,60.7499999999999" />
+                  <mssgle:LineSegment
+                    End="157.138888888889,60.7499999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="887.527777777778,324.472222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.9484126984127,-42.6150793650792"
+              Start="0,0"
+              End="54.4484126984127,-42.6150793650792">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.9742063492063,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.9742063492063,0"
+                    Point2="30.9742063492063,0"
+                    Point3="30.9742063492063,-4" />
+                  <mssgle:LineSegment
+                    End="30.9742063492063,-38.6150793650792" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.9742063492063,-38.6150793650792"
+                    Point2="30.9742063492063,-42.6150793650792"
+                    Point3="34.9742063492063,-42.6150793650792" />
+                  <mssgle:LineSegment
+                    End="54.4484126984127,-42.6150793650792" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3686,37 +3763,25 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         <NodeLayout
           Size="161,42"
           Id="Package\Facto\FactoProducao\ProducaoSource"
-          TopLeft="148,49" />
+          TopLeft="148,48" />
         <NodeLayout
           Size="144,42"
           Id="Package\Facto\FactoProducao\factProducao"
-          TopLeft="343,168" />
+          TopLeft="418.5,52.5" />
         <EdgeLayout
           Id="Package\Facto\FactoProducao.Paths[OLE DB Source Output]"
-          TopLeft="228.5,91">
+          TopLeft="309,71.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="186.5,77"
+              EndConnector="109.5,0"
               Start="0,0"
-              End="186.5,69.5">
+              End="102,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.5"
-                    Point2="0,38.5"
-                    Point3="4,38.5" />
-                  <mssgle:LineSegment
-                    End="182.5,38.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="182.5,38.5"
-                    Point2="186.5,38.5"
-                    Point3="186.5,42.5" />
-                  <mssgle:LineSegment
-                    End="186.5,69.5" />
+                    End="102,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3728,19 +3793,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Facto\FactoProducao\factProducao">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Facto\FactoProducao\ProducaoSource">
     <Properties>
@@ -3846,6 +3898,19 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DWH Container\Dim_Tempo\DateDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Facto\FactoProducao\factProducao">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
