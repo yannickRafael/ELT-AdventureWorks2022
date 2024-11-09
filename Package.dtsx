@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{E7C4CFE1-C88F-4F68-ACCE-5C81E3B63A4D}">
+  DTS:VersionBuild="86"
+  DTS:VersionGUID="{3E4E9FD2-85A4-4ECD-B96F-42D30091C0A7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -81,6 +81,7 @@
           DTS:refId="Package\CleanUp\Add columns"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{1A295C35-EDD0-4EBE-800C-2EE6F63B14AD}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -111,13 +112,12 @@
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
               SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="-- Alterar a coluna productId para não permitir valores nulos&#xA;ALTER TABLE ProductDestination&#xA;ALTER COLUMN productId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna workOrderId para não permitir valores nulos&#xA;ALTER TABLE WorkOrderDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna locationId para não permitir valores nulos&#xA;ALTER TABLE LocalizacaoDestination&#xA;ALTER COLUMN locationId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna dateId para não permitir valores nulos&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN dataId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna workOrderID para não permitir valores nulos&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="-- Alterar a coluna productId para não permitir valores nulos&#xA;ALTER TABLE ProductDestination&#xA;ALTER COLUMN productId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna workOrderId para não permitir valores nulos&#xA;ALTER TABLE WorkOrderDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna locationId para não permitir valores nulos&#xA;ALTER TABLE LocalizacaoDestination&#xA;ALTER COLUMN locationId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna dateId para não permitir valores nulos&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN dataId INT NOT NULL;&#xA;&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\CleanUp\Remove Null"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Disabled="True"
           DTS:DTSID="{303BE554-0509-4DFA-9D1B-BD427F9F8FF5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -129,7 +129,7 @@
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
               SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="DELETE FROM ProductDestination&#xA;WHERE productId IS NULL&#xA;   OR productName IS NULL&#xA;   OR color IS NULL&#xA;   OR makeFlag IS NULL&#xA;   OR listPrice IS NULL&#xA;   OR size IS NULL&#xA;   OR weight IS NULL&#xA;   OR sizeUnitMeasureCode IS NULL&#xA;   OR weightUnitMeasureCode IS NULL&#xA;   OR daysToManufacture IS NULL&#xA;   OR productLine IS NULL&#xA;   OR class IS NULL&#xA;   OR style IS NULL;&#xA;   &#xA;&#xA;DELETE FROM WorkOrderDestination&#xA;WHERE workOrderId IS NULL&#xA;   OR scrappedQty IS NULL&#xA;   OR stockedQty IS NULL;&#xA;&#xA;DELETE FROM LocalizacaoDestination&#xA;WHERE locationId IS NULL&#xA;   OR locationName IS NULL&#xA;   OR workOrderId IS NULL;&#xA;&#xA;DELETE FROM DateDestination&#xA;WHERE dataId IS NULL&#xA;   OR endDate IS NULL&#xA;   OR mes IS NULL&#xA;   OR mesName IS NULL&#xA;   OR ano IS NULL&#xA;   OR semestre IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="DELETE FROM ProductDestination&#xA;WHERE productId IS NULL&#xA;   OR productName IS NULL&#xA;   OR color IS NULL&#xA;   OR makeFlag IS NULL&#xA;   OR listPrice IS NULL&#xA;   OR size IS NULL&#xA;   OR weight IS NULL&#xA;   OR sizeUnitMeasureCode IS NULL&#xA;   OR weightUnitMeasureCode IS NULL&#xA;   OR daysToManufacture IS NULL&#xA;   OR productLine IS NULL&#xA;   OR class IS NULL&#xA;   OR style IS NULL;&#xA;   &#xA;&#xA;DELETE FROM WorkOrderDestination&#xA;WHERE workOrderId IS NULL&#xA;   OR scrappedQty IS NULL&#xA;   OR stockedQty IS NULL;&#xA;&#xA;DELETE FROM LocalizacaoDestination&#xA;WHERE locationId IS NULL&#xA;   OR locationName IS NULL&#xA;   OR workOrderId IS NULL;&#xA;&#xA;DELETE FROM DateDestination&#xA;WHERE dataId IS NULL&#xA;   OR workOrderId IS NULL&#xA;   OR endDate IS NULL&#xA;   OR mes IS NULL&#xA;   OR mesName IS NULL&#xA;   OR ano IS NULL&#xA;   OR semestre IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
