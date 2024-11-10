@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="124"
-  DTS:VersionGUID="{7C1A8852-3B19-42BA-B18F-A706C8208717}">
+  DTS:VersionBuild="128"
+  DTS:VersionGUID="{C40F57D3-CBCA-475F-AE29-0ED7AB54F968}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -207,6 +207,7 @@
       DTS:refId="Package\DWH Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{5730FFEE-6EB1-42C4-8FB8-48A48318622D}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -1909,7 +1910,7 @@ FROM            StagingDestination</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        dataId, endDate, MONTH(endDate) AS mes, DATENAME([MONTH], endDate) AS mesName, YEAR(endDate) AS ano, CASE WHEN MONTH(endDate) &gt;= 1 AND MONTH(endDate) 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT       DISTINCT dataId, endDate, MONTH(endDate) AS mes, DATENAME([MONTH], endDate) AS mesName, YEAR(endDate) AS ano, CASE WHEN MONTH(endDate) &gt;= 1 AND MONTH(endDate) 
                          &lt;= 6 THEN 'First Semester' ELSE 'Second Semester' END AS semestre
 FROM            StagingDestination</property>
                     <property
@@ -3478,10 +3479,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           TopLeft="16.5555555555557,6" />
         <NodeLayout
           Size="137,42"
-          Id="Package\CleanUp\Connect FK"
-          TopLeft="126.714285714286,266" />
-        <NodeLayout
-          Size="137,42"
           Id="Package\CleanUp\No-Nullable"
           TopLeft="183.424242424242,79.4242424242424" />
         <NodeLayout
@@ -3570,6 +3567,10 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="137,42"
+          Id="Package\CleanUp\Connect FK"
+          TopLeft="126.714285714286,266" />
         <EdgeLayout
           Id="Package\CleanUp.PrecedenceConstraints[Constraint 3]"
           TopLeft="102.488733488733,196.119658119658">
@@ -3968,25 +3969,25 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         <NodeLayout
           Size="166,42"
           Id="Package\DWH Container\Dim Produto\ProductExtraction"
-          TopLeft="212,82" />
+          TopLeft="213,82" />
         <NodeLayout
           Size="172,42"
           Id="Package\DWH Container\Dim Produto\ProductDestination"
           TopLeft="509.5,79.5" />
         <EdgeLayout
           Id="Package\DWH Container\Dim Produto.Paths[OLE DB Source Output]"
-          TopLeft="378,101.75">
+          TopLeft="379,101.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="131.5,0"
+              EndConnector="130.5,0"
               Start="0,0"
-              End="124,0">
+              End="123,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="124,0" />
+                    End="123,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
