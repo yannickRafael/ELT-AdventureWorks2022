@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="128"
-  DTS:VersionGUID="{C40F57D3-CBCA-475F-AE29-0ED7AB54F968}">
+  DTS:VersionBuild="133"
+  DTS:VersionGUID="{A5B81216-4D45-4656-92AE-74DB7A51CC32}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -79,61 +79,6 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\CleanUp\Add columns"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{1A295C35-EDD0-4EBE-800C-2EE6F63B14AD}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Add columns"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
-              SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="ALTER TABLE DateDestination&#xA;ADD workOrderId INT;&#xA;&#xA;&#xA;ALTER TABLE WorkOrderDestination&#xA;ADD productId INT;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\CleanUp\Connect FK"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{81083443-0419-460B-9ADE-606ABCB4F34D}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Connect FK"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
-              SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="ALTER TABLE WorkOrderDestination&#xA;ADD CONSTRAINT FK_WorkOrderDestination_ProductDestination&#xA;FOREIGN KEY (productId)&#xA;REFERENCES ProductDestination(productId);&#xA;&#xA;&#xA;ALTER TABLE DateDestination&#xA;ADD CONSTRAINT FK_DateDestination_WorkOrderDestination&#xA;FOREIGN KEY (workOrderId)&#xA;REFERENCES WorkOrderDestination(workOrderId);&#xA;&#xA;ALTER TABLE LocalizacaoDestination&#xA;ADD CONSTRAINT FK_LocalizacaoDestination_WorkOrderDestination&#xA;FOREIGN KEY (workOrderId)&#xA;REFERENCES WorkOrderDestination(workOrderId);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\CleanUp\No-Nullable"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{B760A91D-8A1E-4747-AD09-4E26D7B81A8E}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="No-Nullable"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
-              SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="-- Alterar a coluna productId para não permitir valores nulos&#xA;ALTER TABLE ProductDestination&#xA;ALTER COLUMN productId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna workOrderId para não permitir valores nulos&#xA;ALTER TABLE WorkOrderDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna locationId para não permitir valores nulos&#xA;ALTER TABLE LocalizacaoDestination&#xA;ALTER COLUMN locationId INT NOT NULL;&#xA;&#xA;-- Alterar a coluna dateId para não permitir valores nulos&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN dataId INT NOT NULL;&#xA;&#xA;ALTER TABLE DateDestination&#xA;ALTER COLUMN workOrderId INT NOT NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\CleanUp\Remove Null"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:DTSID="{303BE554-0509-4DFA-9D1B-BD427F9F8FF5}"
@@ -147,61 +92,10 @@
             <SQLTask:SqlTaskData
               SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
               SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="DELETE FROM ProductDestination&#xA;WHERE productId IS NULL&#xA;   OR productName IS NULL&#xA;   OR color IS NULL&#xA;   OR makeFlag IS NULL&#xA;   OR listPrice IS NULL&#xA;   OR size IS NULL&#xA;   OR weight IS NULL&#xA;   OR sizeUnitMeasureCode IS NULL&#xA;   OR weightUnitMeasureCode IS NULL&#xA;   OR daysToManufacture IS NULL&#xA;   OR productLine IS NULL&#xA;   OR class IS NULL&#xA;   OR style IS NULL;&#xA;   &#xA;&#xA;DELETE FROM WorkOrderDestination&#xA;WHERE workOrderId IS NULL&#xA;   OR scrappedQty IS NULL&#xA;   OR stockedQty IS NULL;&#xA;&#xA;DELETE FROM LocalizacaoDestination&#xA;WHERE locationId IS NULL&#xA;   OR locationName IS NULL&#xA;   OR workOrderId IS NULL;&#xA;&#xA;DELETE FROM DateDestination&#xA;WHERE dataId IS NULL&#xA;   OR workOrderId IS NULL&#xA;   OR endDate IS NULL&#xA;   OR mes IS NULL&#xA;   OR mesName IS NULL&#xA;   OR ano IS NULL&#xA;   OR semestre IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\CleanUp\Set-PrimaryKey"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:DTSID="{B7C7E329-7037-47B6-BD12-C8B784D31823}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Set-PrimaryKey"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{9502FB24-F8A7-4B2F-8AD3-7BE854818CA9}"
-              SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="IF NOT EXISTS (&#xA;    SELECT * &#xA;    FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS &#xA;    WHERE TABLE_NAME = 'ProductDestination' &#xA;    AND CONSTRAINT_TYPE = 'PRIMARY KEY'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE ProductDestination&#xA;    ADD CONSTRAINT PK_ProductDestination PRIMARY KEY (productId);&#xA;END&#xA;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT * &#xA;    FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS &#xA;    WHERE TABLE_NAME = 'WorkOrderDestination' &#xA;    AND CONSTRAINT_TYPE = 'PRIMARY KEY'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE WorkOrderDestination&#xA;    ADD CONSTRAINT PK_WorkOrderDestination PRIMARY KEY (workOrderId);&#xA;END&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT * &#xA;    FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS &#xA;    WHERE TABLE_NAME = 'LocalizacaoDestination' &#xA;    AND CONSTRAINT_TYPE = 'PRIMARY KEY'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE LocalizacaoDestination&#xA;    ADD CONSTRAINT PK_LocalizacaoDestination PRIMARY KEY (locationId);&#xA;END&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT * &#xA;    FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS &#xA;    WHERE TABLE_NAME = 'DateDestination' &#xA;    AND CONSTRAINT_TYPE = 'PRIMARY KEY'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE DateDestination&#xA;    ADD CONSTRAINT PK_DateDestination PRIMARY KEY (dataId, workOrderId);&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="DELETE FROM ProductDestination&#xA;WHERE productId IS NULL&#xA;   OR productName IS NULL&#xA;   OR color IS NULL&#xA;   OR makeFlag IS NULL&#xA;   OR listPrice IS NULL&#xA;   OR size IS NULL&#xA;   OR weight IS NULL&#xA;   OR sizeUnitMeasureCode IS NULL&#xA;   OR weightUnitMeasureCode IS NULL&#xA;   OR daysToManufacture IS NULL&#xA;   OR productLine IS NULL&#xA;   OR class IS NULL&#xA;   OR style IS NULL;&#xA;   &#xA;&#xA;DELETE FROM WorkOrderDestination&#xA;WHERE workOrderId IS NULL&#xA;   OR scrappedQty IS NULL&#xA;   OR stockedQty IS NULL;&#xA;&#xA;DELETE FROM LocalizacaoDestination&#xA;WHERE locationId IS NULL&#xA;   OR locationName IS NULL;&#xA;&#xA;DELETE FROM DateDestination&#xA;WHERE dataId IS NULL&#xA;   OR endDate IS NULL&#xA;   OR mes IS NULL&#xA;   OR mesName IS NULL&#xA;   OR ano IS NULL&#xA;   OR semestre IS NULL;&#xA;&#xA;&#xA;DELETE FROM ReasonDestination&#xA;WHERE scrapReasonId IS NULL&#xA;   OR scrapName IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\CleanUp.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{E6AFF0CB-CBC3-4395-8DEF-15741FF594D7}"
-          DTS:From="Package\CleanUp\Remove Null"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\CleanUp\No-Nullable" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\CleanUp.PrecedenceConstraints[Constraint 1]"
-          DTS:CreationName=""
-          DTS:DTSID="{105D723C-10A0-4569-B237-677BD85A9489}"
-          DTS:From="Package\CleanUp\Add columns"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 1"
-          DTS:To="Package\CleanUp\Remove Null" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\CleanUp.PrecedenceConstraints[Constraint 2]"
-          DTS:CreationName=""
-          DTS:DTSID="{0DA08588-4F74-46E9-A8AB-59CBB0D1C3A5}"
-          DTS:From="Package\CleanUp\No-Nullable"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 2"
-          DTS:To="Package\CleanUp\Set-PrimaryKey" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\CleanUp.PrecedenceConstraints[Constraint 3]"
-          DTS:CreationName=""
-          DTS:DTSID="{9C5946CD-7B61-4DE6-8569-D9091F3AED71}"
-          DTS:From="Package\CleanUp\Set-PrimaryKey"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 3"
-          DTS:To="Package\CleanUp\Connect FK" />
-      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\DWH Container"
@@ -2143,7 +2037,6 @@ FROM            StagingDestination</property>
       DTS:refId="Package\Facto"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{316C86EB-9313-49D7-9266-6E18B8B2B0B6}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -2273,12 +2166,20 @@ FROM            StagingDestination</property>
                           name="workOrderId" />
                         <externalMetadataColumn
                           refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[locationId]"
-                          dataType="i4"
+                          dataType="i2"
                           name="locationId" />
                         <externalMetadataColumn
                           refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
                           dataType="i4"
                           name="productId" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[factId]"
+                          dataType="i4"
+                          name="factId" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[scrapReasonId]"
+                          dataType="i2"
+                          name="scrapReasonId" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2332,11 +2233,12 @@ FROM            StagingDestination</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        DateDestination.dataId, WorkOrderDestination.workOrderId, LocalizacaoDestination.locationId, ProductDestination.productId
-FROM            DateDestination INNER JOIN
-                         LocalizacaoDestination ON DateDestination.workOrderId = LocalizacaoDestination.workOrderId INNER JOIN
-                         WorkOrderDestination ON DateDestination.workOrderId = WorkOrderDestination.workOrderId AND LocalizacaoDestination.workOrderId = WorkOrderDestination.workOrderId INNER JOIN
-                         ProductDestination ON WorkOrderDestination.productId = ProductDestination.productId</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        DateDestination.dataId, LocalizacaoDestination.locationId, ProductDestination.productId, ReasonDestination.scrapReasonId, WorkOrderDestination_1.workOrderId
+FROM            WorkOrderDestination AS WorkOrderDestination_1 CROSS JOIN
+                         DateDestination CROSS JOIN
+                         LocalizacaoDestination CROSS JOIN
+                         ProductDestination CROSS JOIN
+                         ReasonDestination</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2408,6 +2310,15 @@ FROM            DateDestination INNER JOIN
                           lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[productId]"
                           name="productId"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[scrapReasonId]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[scrapReasonId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[scrapReasonId]"
+                          name="scrapReasonId"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2421,12 +2332,16 @@ FROM            DateDestination INNER JOIN
                           name="workOrderId" />
                         <externalMetadataColumn
                           refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[locationId]"
-                          dataType="i4"
+                          dataType="i2"
                           name="locationId" />
                         <externalMetadataColumn
                           refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[productId]"
                           dataType="i4"
                           name="productId" />
+                        <externalMetadataColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].ExternalColumns[scrapReasonId]"
+                          dataType="i2"
+                          name="scrapReasonId" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -2446,9 +2361,14 @@ FROM            DateDestination INNER JOIN
                           name="workOrderId" />
                         <outputColumn
                           refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[locationId]"
-                          dataType="i4"
+                          dataType="i2"
                           lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[locationId]"
                           name="locationId" />
+                        <outputColumn
+                          refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[scrapReasonId]"
+                          dataType="i2"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[scrapReasonId]"
+                          name="scrapReasonId" />
                         <outputColumn
                           refId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Error Output].Columns[productId]"
                           dataType="i4"
@@ -3474,137 +3394,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="143,42"
-          Id="Package\CleanUp\Add columns"
-          TopLeft="16.5555555555557,6" />
-        <NodeLayout
-          Size="137,42"
-          Id="Package\CleanUp\No-Nullable"
-          TopLeft="183.424242424242,79.4242424242424" />
-        <NodeLayout
           Size="142,42"
           Id="Package\CleanUp\Remove Null"
           TopLeft="12.809523809524,82.0952380952381" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\CleanUp\Set-PrimaryKey"
-          TopLeft="24.4887334887334,154.119658119658" />
-        <EdgeLayout
-          Id="Package\CleanUp.PrecedenceConstraints[Constraint]"
-          TopLeft="154.809523809524,101.75974025974">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="28.6147186147184,0"
-              Start="0,0"
-              End="21.1147186147184,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="21.1147186147184,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CleanUp.PrecedenceConstraints[Constraint 1]"
-          TopLeft="85.9325396825398,48">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.0952380952381"
-              Start="0,0"
-              End="0,26.5952380952381">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5952380952381" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CleanUp.PrecedenceConstraints[Constraint 2]"
-          TopLeft="251.924242424242,121.424242424242">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-149.435508935509,32.6954156954156"
-              Start="0,0"
-              End="-149.435508935509,25.1954156954156">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.3477078477078" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.3477078477078"
-                    Point2="0,16.3477078477078"
-                    Point3="-4,16.3477078477078" />
-                  <mssgle:LineSegment
-                    End="-145.435508935509,16.3477078477078" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-145.435508935509,16.3477078477078"
-                    Point2="-149.435508935509,16.3477078477078"
-                    Point3="-149.435508935509,20.3477078477078" />
-                  <mssgle:LineSegment
-                    End="-149.435508935509,25.1954156954156" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="137,42"
-          Id="Package\CleanUp\Connect FK"
-          TopLeft="126.714285714286,266" />
-        <EdgeLayout
-          Id="Package\CleanUp.PrecedenceConstraints[Constraint 3]"
-          TopLeft="102.488733488733,196.119658119658">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="92.7255522255523,69.880341880342"
-              Start="0,0"
-              End="92.7255522255523,62.380341880342">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.940170940171" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.940170940171"
-                    Point2="0,34.940170940171"
-                    Point3="4,34.940170940171" />
-                  <mssgle:LineSegment
-                    End="88.7255522255523,34.940170940171" />
-                  <mssgle:CubicBezierSegment
-                    Point1="88.7255522255523,34.940170940171"
-                    Point2="92.7255522255523,34.940170940171"
-                    Point3="92.7255522255523,38.940170940171" />
-                  <mssgle:LineSegment
-                    End="92.7255522255523,62.380341880342" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -4166,37 +3958,35 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\Facto\FactoProducao">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="161,42"
           Id="Package\Facto\FactoProducao\ProducaoSource"
-          TopLeft="148,48" />
+          TopLeft="148,45" />
         <NodeLayout
           Size="144,42"
           Id="Package\Facto\FactoProducao\factProducao"
-          TopLeft="418.5,52.5" />
+          TopLeft="419.5,51.5" />
         <EdgeLayout
           Id="Package\Facto\FactoProducao.Paths[OLE DB Source Output]"
-          TopLeft="309,71.25">
+          TopLeft="309,69.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="109.5,0"
+              EndConnector="110.5,0"
               Start="0,0"
-              End="102,0">
+              End="103,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="102,0" />
+                    End="103,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
