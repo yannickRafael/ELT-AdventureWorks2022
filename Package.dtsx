@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="140"
-  DTS:VersionGUID="{FFF9F811-B51B-44C8-A32D-2B8E7185B485}">
+  DTS:VersionBuild="143"
+  DTS:VersionGUID="{6F40C9E5-486B-4DF7-A66F-2380869EE8DA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -62,6 +62,161 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=DESKTOP-DB31VT5;Initial Catalog=awStaging;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{EDAFC10C-5FF4-4396-8FE0-E4A107051EAA}DESKTOP-DB31VT5.awStaging;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C2D84226-361D-4FAD-A78B-C329F5FF810F}"
+      DTS:ObjectName="PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Yannick Matimbe\Desktop\Teste2\model\data\PRODUCTION_DATA.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dataId"
+              DTS:DTSID="{1C32D383-9C15-4F6E-B0A1-139F5C39662A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="locationId"
+              DTS:DTSID="{7E3EF145-DAE0-487E-9315-37E79AC13685}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="productId"
+              DTS:DTSID="{5DA13F35-E15D-4E13-A316-EDFC0A6FAF44}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="color"
+              DTS:DTSID="{5DFC1D8E-8C6C-4E77-8B8F-4045944BAB7E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="makeFlag"
+              DTS:DTSID="{4B122A6B-9E5E-4F9D-97A5-F1B3AA5A540D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="listPrice"
+              DTS:DTSID="{51CFD9A3-2A31-4087-88A6-C9020F255D8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="size"
+              DTS:DTSID="{24AEA8AD-27B3-4346-9334-F5C45C62D3E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="8"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="weight"
+              DTS:DTSID="{A249185D-C387-467D-ABF2-64E516BCBBED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="daysToManufacture"
+              DTS:DTSID="{AB12D9D5-5025-44A6-9015-ECEF8ED4DFD8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="productLine"
+              DTS:DTSID="{5FD859D0-9FA1-4FFD-8991-245AA49D5C63}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="class"
+              DTS:DTSID="{655C961C-C239-4D6B-93DA-BBCDEDD05653}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="style"
+              DTS:DTSID="{D8C0CAD6-CAEA-4F56-9010-6D25521A8E75}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="scrapReasonId"
+              DTS:DTSID="{FA7A386C-6D6A-460E-96C6-D8842B2D0401}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="workOrderId"
+              DTS:DTSID="{C02D3291-F29A-41E7-9D3A-C2AA09AAD77C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="scrappedQty"
+              DTS:DTSID="{965224F9-FE7F-4739-9C7A-0237BBF69521}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="stockedQty"
+              DTS:DTSID="{6640E63C-1BA3-4753-9F32-8A51E94A24FE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -3356,6 +3511,683 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         </DTS:Executable>
       </DTS:Executables>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Training Data"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{66567A39-4AB5-4627-8676-D47E9600B25F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Training Data">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Training Data\toCSV"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{19A93C15-BDEC-46B6-A074-1C1CEFE01224}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="toCSV"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Training Data\toCSV\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header">dataId,locationId,productId,color,makeFlag,listPrice,size,weight,daysToManufacture,productLine,class,style,scrapReasonId,workOrderId,scrappedQty,stockedQty</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Training Data\toCSV\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data]"
+                      connectionManagerRefId="Package.ConnectionManagers[PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[dataId]"
+                          cachedDataType="i4"
+                          cachedName="dataId"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[dataId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[dataId]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[locationId]"
+                          cachedDataType="i2"
+                          cachedName="locationId"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[locationId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[locationId]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[productId]"
+                          cachedDataType="i4"
+                          cachedName="productId"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[productId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[productId]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[color]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="color"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[color]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[color]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[makeFlag]"
+                          cachedDataType="bool"
+                          cachedName="makeFlag"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[makeFlag]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[makeFlag]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[listPrice]"
+                          cachedDataType="cy"
+                          cachedName="listPrice"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[listPrice]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[listPrice]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[size]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="size"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[size]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[size]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[weight]"
+                          cachedDataType="numeric"
+                          cachedName="weight"
+                          cachedPrecision="8"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[weight]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[weight]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[daysToManufacture]"
+                          cachedDataType="i4"
+                          cachedName="daysToManufacture"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[daysToManufacture]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[daysToManufacture]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[productLine]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="productLine"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[productLine]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[productLine]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[class]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="class"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[class]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[class]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[style]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="style"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[style]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[style]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[scrapReasonId]"
+                          cachedDataType="i2"
+                          cachedName="scrapReasonId"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[scrapReasonId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[scrapReasonId]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[workOrderId]"
+                          cachedDataType="i4"
+                          cachedName="workOrderId"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[workOrderId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[scrappedQty]"
+                          cachedDataType="i2"
+                          cachedName="scrappedQty"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[scrappedQty]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[scrappedQty]" />
+                        <inputColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[stockedQty]"
+                          cachedDataType="i4"
+                          cachedName="stockedQty"
+                          externalMetadataColumnId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[stockedQty]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[stockedQty]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[dataId]"
+                          dataType="i4"
+                          name="dataId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[locationId]"
+                          dataType="i2"
+                          name="locationId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[productId]"
+                          dataType="i4"
+                          name="productId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[color]"
+                          dataType="wstr"
+                          length="15"
+                          name="color" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[makeFlag]"
+                          dataType="bool"
+                          name="makeFlag" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[listPrice]"
+                          dataType="cy"
+                          name="listPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[size]"
+                          dataType="wstr"
+                          length="5"
+                          name="size" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[weight]"
+                          dataType="numeric"
+                          name="weight"
+                          precision="8"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[daysToManufacture]"
+                          dataType="i4"
+                          name="daysToManufacture" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[productLine]"
+                          dataType="wstr"
+                          length="2"
+                          name="productLine" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[class]"
+                          dataType="wstr"
+                          length="2"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[style]"
+                          dataType="wstr"
+                          length="2"
+                          name="style" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[scrapReasonId]"
+                          dataType="i2"
+                          name="scrapReasonId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[workOrderId]"
+                          dataType="i4"
+                          name="workOrderId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[scrappedQty]"
+                          dataType="i2"
+                          name="scrappedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[stockedQty]"
+                          dataType="i4"
+                          name="stockedQty" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Training Data\toCSV\TrainingDataExtraction"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="TrainingDataExtraction"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+dd.dataId, 
+ld.locationId, 
+pd.productId, pd.color, pd.makeFlag, pd.listPrice, pd.size, pd.weight, pd.daysToManufacture, 
+CASE
+	WHEN pd.productLine = 'R' THEN 0
+	WHEN pd.productLine = 'M' THEN 1
+	WHEN pd.productLine = 'T' THEN 2
+	WHEN pd.productLine = 'S' THEN 3
+END AS productLine,
+CASE
+	WHEN pd.class = 'H' THEN 0
+	WHEN pd.class = 'M' THEN 1
+	WHEN pd.class = 'L' THEN 2
+END AS class,
+CASE
+	WHEN pd.style= 'W' THEN 0
+	WHEN pd.style = 'M' THEN 1
+	WHEN pd.style = 'U' THEN 2
+END AS style,
+rd.scrapReasonId, 
+wd.workOrderId, wd.scrappedQty, wd.stockedQty
+FROM dbo.factProducao fp
+JOIN dbo.DateDestination dd
+ON fp.dataId = dd.dataId
+JOIN dbo.LocalizacaoDestination ld
+ON ld.locationId = fp.locationId
+JOIN dbo.ProductDestination pd
+ON pd.productId = fp.productId
+JOIN dbo.ReasonDestination rd
+ON rd.scrapReasonId = fp.scrapReasonId
+JOIN dbo.WorkOrderDestination wd
+ON fp.workOrderId = wd.workOrderId</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Training Data\toCSV\TrainingDataExtraction.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[dataId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[dataId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[dataId]"
+                          name="dataId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[locationId]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[locationId]"
+                          name="locationId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[productId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[productId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[productId]"
+                          name="productId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[color]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[color]"
+                          length="15"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[color]"
+                          name="color"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[makeFlag]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[makeFlag]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[makeFlag]"
+                          name="makeFlag"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[listPrice]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[listPrice]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[listPrice]"
+                          name="listPrice"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[size]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[size]"
+                          length="5"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[size]"
+                          name="size"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[weight]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[weight]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[weight]"
+                          name="weight"
+                          precision="8"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[daysToManufacture]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[daysToManufacture]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[daysToManufacture]"
+                          name="daysToManufacture"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[productLine]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[productLine]"
+                          length="2"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[productLine]"
+                          name="productLine"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[class]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          length="2"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[class]"
+                          name="class"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[style]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[style]"
+                          length="2"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[style]"
+                          name="style"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[scrapReasonId]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrapReasonId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[scrapReasonId]"
+                          name="scrapReasonId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]"
+                          name="workOrderId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[scrappedQty]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrappedQty]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[scrappedQty]"
+                          name="scrappedQty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[stockedQty]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[stockedQty]"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].Columns[stockedQty]"
+                          name="stockedQty"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[dataId]"
+                          dataType="i4"
+                          name="dataId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[locationId]"
+                          dataType="i2"
+                          name="locationId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[productId]"
+                          dataType="i4"
+                          name="productId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[color]"
+                          dataType="wstr"
+                          length="15"
+                          name="color" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[makeFlag]"
+                          dataType="bool"
+                          name="makeFlag" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[listPrice]"
+                          dataType="cy"
+                          name="listPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[size]"
+                          dataType="wstr"
+                          length="5"
+                          name="size" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[weight]"
+                          dataType="numeric"
+                          name="weight"
+                          precision="8"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[daysToManufacture]"
+                          dataType="i4"
+                          name="daysToManufacture" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[productLine]"
+                          dataType="i4"
+                          name="productLine" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[class]"
+                          dataType="i4"
+                          name="class" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[style]"
+                          dataType="i4"
+                          name="style" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrapReasonId]"
+                          dataType="i2"
+                          name="scrapReasonId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
+                          dataType="i4"
+                          name="workOrderId" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrappedQty]"
+                          dataType="i2"
+                          name="scrappedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output].ExternalColumns[stockedQty]"
+                          dataType="i4"
+                          name="stockedQty" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[dataId]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[dataId]"
+                          name="dataId" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[locationId]"
+                          dataType="i2"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[locationId]"
+                          name="locationId" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[productId]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[productId]"
+                          name="productId" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[color]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[color]"
+                          name="color" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[makeFlag]"
+                          dataType="bool"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[makeFlag]"
+                          name="makeFlag" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[listPrice]"
+                          dataType="cy"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[listPrice]"
+                          name="listPrice" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[size]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[size]"
+                          name="size" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[weight]"
+                          dataType="numeric"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[weight]"
+                          name="weight"
+                          precision="8"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[daysToManufacture]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[daysToManufacture]"
+                          name="daysToManufacture" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[productLine]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[productLine]"
+                          name="productLine" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[class]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[class]"
+                          name="class" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[style]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[style]"
+                          name="style" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[scrapReasonId]"
+                          dataType="i2"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[scrapReasonId]"
+                          name="scrapReasonId" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
+                          name="workOrderId" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[scrappedQty]"
+                          dataType="i2"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[scrappedQty]"
+                          name="scrappedQty" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[stockedQty]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[stockedQty]"
+                          name="stockedQty" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Training Data\toCSV.Paths[OLE DB Source Output]"
+                  endId="Package\Training Data\toCSV\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Training Data\toCSV\TrainingDataExtraction.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -3382,6 +4214,14 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Facto" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{C6D04EFB-29C2-4327-80DF-DF83A39A1B94}"
+      DTS:From="Package\Facto"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Training Data" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3673,6 +4513,51 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                     Point3="49.9742063492059,17.3849206349211" />
                   <mssgle:LineSegment
                     End="84.4484126984119,17.3849206349211" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="111,42"
+          Id="Package\Training Data\toCSV"
+          TopLeft="33,4.28571428571411" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,101"
+          Size="205,144"
+          Id="Package\Training Data"
+          TopLeft="957.285714285714,776.928571428571" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="1095.47619047619,706.857142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.6904761904757,70.0714285714283"
+              Start="0,0"
+              End="-35.6904761904757,62.5714285714283">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.0357142857142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.0357142857142"
+                    Point2="0,35.0357142857142"
+                    Point3="-4,35.0357142857142" />
+                  <mssgle:LineSegment
+                    End="-31.6904761904757,35.0357142857142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.6904761904757,35.0357142857142"
+                    Point2="-35.6904761904757,35.0357142857142"
+                    Point3="-35.6904761904757,39.0357142857142" />
+                  <mssgle:LineSegment
+                    End="-35.6904761904757,62.5714285714283" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4139,6 +5024,52 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Staging Area Population\StagingArea\StagingExtraction">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Training Data\toCSV">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Training Data\toCSV\TrainingDataExtraction"
+          TopLeft="117.5,53.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Training Data\toCSV\Flat File Destination"
+          TopLeft="488,54" />
+        <EdgeLayout
+          Id="Package\Training Data\toCSV.Paths[OLE DB Source Output]"
+          TopLeft="308.5,74.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179.5,0"
+              Start="0,0"
+              End="172,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="172,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Training Data\toCSV\TrainingDataExtraction">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
