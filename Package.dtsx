@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="143"
-  DTS:VersionGUID="{6F40C9E5-486B-4DF7-A66F-2380869EE8DA}">
+  DTS:VersionBuild="144"
+  DTS:VersionGUID="{D00B6AD4-F2ED-4F6B-95C6-0F5DC34D735F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -65,10 +65,10 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data]"
+      DTS:refId="Package.ConnectionManagers[PRODUCTION_DATA_CONNECTION]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{C2D84226-361D-4FAD-A78B-C329F5FF810F}"
-      DTS:ObjectName="PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data">
+      DTS:ObjectName="PRODUCTION_DATA_CONNECTION">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -78,7 +78,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\Yannick Matimbe\Desktop\Teste2\model\data\PRODUCTION_DATA.csv">
+          DTS:ConnectionString="C:\Users\Yannick Matimbe\Desktop\Teste2\solution\yannickRafael\ELT-AdventureWorks2022\data\PRODUCTION_DATA.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -86,7 +86,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="dataId"
-              DTS:DTSID="{1C32D383-9C15-4F6E-B0A1-139F5C39662A}"
+              DTS:DTSID="{3D7CA81A-E72D-4C45-857F-E42288F579B8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -94,7 +94,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="locationId"
-              DTS:DTSID="{7E3EF145-DAE0-487E-9315-37E79AC13685}"
+              DTS:DTSID="{7A7891D4-C813-428C-BE9C-2FD8358B9C92}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -102,7 +102,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="productId"
-              DTS:DTSID="{5DA13F35-E15D-4E13-A316-EDFC0A6FAF44}"
+              DTS:DTSID="{D81CC01A-4A27-4D53-82C6-E30054717B93}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -111,7 +111,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="color"
-              DTS:DTSID="{5DFC1D8E-8C6C-4E77-8B8F-4045944BAB7E}"
+              DTS:DTSID="{9F114C2D-6981-407E-B78A-8F7FB797A386}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -119,7 +119,7 @@
               DTS:DataType="11"
               DTS:TextQualified="True"
               DTS:ObjectName="makeFlag"
-              DTS:DTSID="{4B122A6B-9E5E-4F9D-97A5-F1B3AA5A540D}"
+              DTS:DTSID="{C8B7B795-D9DB-4B24-BD6E-6910AE9BA0AC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -127,7 +127,7 @@
               DTS:DataType="6"
               DTS:TextQualified="True"
               DTS:ObjectName="listPrice"
-              DTS:DTSID="{51CFD9A3-2A31-4087-88A6-C9020F255D8F}"
+              DTS:DTSID="{01A582B8-8842-42B8-9D4D-486F99C7B0CA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -136,7 +136,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="size"
-              DTS:DTSID="{24AEA8AD-27B3-4346-9334-F5C45C62D3E3}"
+              DTS:DTSID="{D81869F1-CB7B-4242-B996-87E7A98164D1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -146,7 +146,7 @@
               DTS:DataScale="2"
               DTS:TextQualified="True"
               DTS:ObjectName="weight"
-              DTS:DTSID="{A249185D-C387-467D-ABF2-64E516BCBBED}"
+              DTS:DTSID="{0C45E00F-DF49-4057-ABB0-2A5C06BF47AF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -154,7 +154,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="daysToManufacture"
-              DTS:DTSID="{AB12D9D5-5025-44A6-9015-ECEF8ED4DFD8}"
+              DTS:DTSID="{9F406F59-3A7E-4A9A-BD53-464B9E5829CE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -163,7 +163,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="productLine"
-              DTS:DTSID="{5FD859D0-9FA1-4FFD-8991-245AA49D5C63}"
+              DTS:DTSID="{A3612DEF-A578-47F1-8D52-3C97940CF245}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -172,7 +172,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="class"
-              DTS:DTSID="{655C961C-C239-4D6B-93DA-BBCDEDD05653}"
+              DTS:DTSID="{D18D4AE2-C7AF-4507-9F31-E98F4CA902B1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -181,7 +181,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="style"
-              DTS:DTSID="{D8C0CAD6-CAEA-4F56-9010-6D25521A8E75}"
+              DTS:DTSID="{D2FB2B53-AD22-4834-B7E3-0FFDA2D403F2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -189,7 +189,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="scrapReasonId"
-              DTS:DTSID="{FA7A386C-6D6A-460E-96C6-D8842B2D0401}"
+              DTS:DTSID="{F19A0BCD-8F56-4E84-8B60-109A0C6E81D8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -197,7 +197,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="workOrderId"
-              DTS:DTSID="{C02D3291-F29A-41E7-9D3A-C2AA09AAD77C}"
+              DTS:DTSID="{1D3458B0-7983-4DC5-9018-EF9E7D6BF8CB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -205,7 +205,7 @@
               DTS:DataType="2"
               DTS:TextQualified="True"
               DTS:ObjectName="scrappedQty"
-              DTS:DTSID="{965224F9-FE7F-4739-9C7A-0237BBF69521}"
+              DTS:DTSID="{4713811B-6332-4E1B-8883-056E238136AA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -213,7 +213,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="stockedQty"
-              DTS:DTSID="{6640E63C-1BA3-4753-9F32-8A51E94A24FE}"
+              DTS:DTSID="{8581403E-4C42-4E8D-B89C-E64A81B31D35}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -2192,6 +2192,7 @@ FROM            StagingDestination</property>
       DTS:refId="Package\Facto"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{316C86EB-9313-49D7-9266-6E18B8B2B0B6}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -3547,7 +3548,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                     <property
                       dataType="System.Boolean"
                       description="Specifies whether the data will overwrite or append to the destination file."
-                      name="Overwrite">true</property>
+                      name="Overwrite">false</property>
                     <property
                       dataType="System.String"
                       description="Specifies the text to write to the destination file before any data is written."
@@ -3561,8 +3562,8 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                   <connections>
                     <connection
                       refId="Package\Training Data\toCSV\Flat File Destination.Connections[FlatFileConnection]"
-                      connectionManagerID="Package.ConnectionManagers[PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data]"
-                      connectionManagerRefId="Package.ConnectionManagers[PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data]"
+                      connectionManagerID="Package.ConnectionManagers[PRODUCTION_DATA_CONNECTION]"
+                      connectionManagerRefId="Package.ConnectionManagers[PRODUCTION_DATA_CONNECTION]"
                       name="FlatFileConnection" />
                   </connections>
                   <inputs>

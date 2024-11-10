@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-DB31VT5</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7YiV7lY8WUirGEwlVMutQAAAAAACAAAAAAAQZgAAAAEAACAAAADU6caqumMmIh/eUfCfP9mWJaUVmQviMVomlYRCSTLCZQAAAAAOgAAAAAIAACAAAAAkyjQ5S/jtVfBHnRd9TImwwkMH9D994uj3Veh949DTrZAAAADL5dxZ4+kKZ9qfdMZSI0aMtYzXaSbGelT8agEQM57iv1Bp/9DDCPp1oqB20Ae/EexYHAWiSffyI/XrSYdkt4chiaijFV12a8/mmciEhz+D4gI965Z1ghL9peP9hVQBkJw118hRjorUZCu9So08N40ZOtVOKYdlJqLWzCuTwzAW1tV2k2N+AMMETOQCV/Ta2zpAAAAAfvxyfncuOiUBd1S/Cd8OC0Tq6DUs46s1FvyIBquuJsPRnyGKrk2rOW2UnW9bgNjGWvYU39AOL0aBOYg0if6yrQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7YiV7lY8WUirGEwlVMutQAAAAAACAAAAAAAQZgAAAAEAACAAAAD/EHnaQ3hdkbojTFFQA3x3uWqg01B/WnZWoy5OIOFJsQAAAAAOgAAAAAIAACAAAAAISDicVQXdQTEPcjuyvMDUUauFnDwuNt0wvAwO1u/oxpAAAADxymx1I0yCMWx4TppDMVIGKSRI2OyE/wG7J94nITPTsb8bzyhU11vary9IN34UJuVnZA2oMRQ2QU5jA8QhUtCbzp46NnpCvqg5lD7ChcPI/xP+OrvNJTOlso50g8VdylVy0M/fz+rjR5Sd8vqe2TK1qFlAqo0rZCnaCvSMoPTbdS2Y6h0THMQEsGSA+Yu0wyBAAAAA/EbJ/9nsoL8TwyHTqL9yUyQ63bQsMfwpYInXd55VOju+0n96Neqqo3LKT6LvF0w1sej0RYrz5fMaesHGiJU3ag==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,10 +42,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">142</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">144</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{29FA0569-3E13-4A11-BA54-890EDE2E8A50}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D00B6AD4-F2ED-4F6B-95C6-0F5DC34D735F}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -644,7 +644,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.AlwaysCheckForRowDelimiters">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.AlwaysCheckForRowDelimiters">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -659,7 +659,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.CodePage">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.CodePage">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -674,7 +674,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.ColumnNamesInFirstDataRow">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.ColumnNamesInFirstDataRow">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -689,7 +689,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -704,7 +704,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -715,11 +715,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\Yannick Matimbe\Desktop\Teste2\model\data\PRODUCTION_DATA.csv</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\Users\Yannick Matimbe\Desktop\Teste2\solution\yannickRafael\ELT-AdventureWorks2022\data\PRODUCTION_DATA.csv</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.DataRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.DataRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -734,7 +734,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.Format">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.Format">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -749,7 +749,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.HeaderRowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.HeaderRowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -765,7 +765,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.HeaderRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.HeaderRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -780,7 +780,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.LocaleID">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.LocaleID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -795,7 +795,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.RowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.RowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -809,7 +809,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.TextQualifier">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.TextQualifier">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -824,7 +824,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTIONC:\Users\Yannick Matimbe\Desktop\Teste2\model\data.Unicode">
+                <SSIS:Parameter SSIS:Name="CM.PRODUCTION_DATA_CONNECTION.Unicode">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
