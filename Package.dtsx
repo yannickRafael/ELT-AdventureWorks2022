@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="117"
-  DTS:VersionGUID="{83B1ADCB-8ACC-4E11-AAEE-1255A79839B5}">
+  DTS:VersionBuild="124"
+  DTS:VersionGUID="{7C1A8852-3B19-42BA-B18F-A706C8208717}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -207,7 +207,6 @@
       DTS:refId="Package\DWH Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{5730FFEE-6EB1-42C4-8FB8-48A48318622D}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -218,7 +217,6 @@
           DTS:refId="Package\DWH Container\Dim Localização"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{8FE0975B-FE18-4142-BD14-CD21E583665E}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -302,18 +300,21 @@
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].Columns[workOrderId]"
-                          cachedDataType="i4"
-                          cachedName="workOrderId"
-                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]" />
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].Columns[locationId]"
+                          cachedDataType="i2"
+                          cachedName="locationId"
+                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[locationId]"
+                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[locationId]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].Columns[locationName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="locationName"
+                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[locationName]"
+                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[locationName]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
-                          dataType="i4"
-                          name="workOrderId" />
                         <externalMetadataColumn
                           refId="Package\DWH Container\Dim Localização\LocalizacaoDestination.Inputs[OLE DB Destination Input].ExternalColumns[locationId]"
                           dataType="i2"
@@ -376,7 +377,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT locationId, locationName, workOrderId
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT locationId, locationName
 FROM            StagingDestination</property>
                     <property
                       dataType="System.String"
@@ -432,15 +433,6 @@ FROM            StagingDestination</property>
                           lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[locationName]"
                           name="locationName"
                           truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].Columns[workOrderId]"
-                          name="workOrderId"
-                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -453,10 +445,6 @@ FROM            StagingDestination</property>
                           dataType="wstr"
                           length="50"
                           name="locationName" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Output].ExternalColumns[workOrderId]"
-                          dataType="i4"
-                          name="workOrderId" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -475,11 +463,6 @@ FROM            StagingDestination</property>
                           length="50"
                           lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[locationName]"
                           name="locationName" />
-                        <outputColumn
-                          refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
-                          dataType="i4"
-                          lineageId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[workOrderId]"
-                          name="workOrderId" />
                         <outputColumn
                           refId="Package\DWH Container\Dim Localização\LocalizacaoExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -512,7 +495,6 @@ FROM            StagingDestination</property>
           DTS:refId="Package\DWH Container\Dim Produto"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{099F9329-E94A-4D5A-BECA-61519ED1B1B6}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -1141,10 +1123,287 @@ FROM            StagingDestination</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\DWH Container\Dim Reason"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{26DF0A42-3172-4AE0-A6F0-5F773EFA5C26}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Dim Reason"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DWH Container\Dim Reason\Reason Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Reason Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        DISTINCT scrapReasonId, scrapName
+FROM            StagingDestination</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWH Container\Dim Reason\Reason Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[aWStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWStaging_Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].Columns[scrapReasonId]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].ExternalColumns[scrapReasonId]"
+                          lineageId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].Columns[scrapReasonId]"
+                          name="scrapReasonId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].Columns[scrapName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].ExternalColumns[scrapName]"
+                          length="50"
+                          lineageId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].Columns[scrapName]"
+                          name="scrapName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].ExternalColumns[scrapReasonId]"
+                          dataType="i2"
+                          name="scrapReasonId" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].ExternalColumns[scrapName]"
+                          dataType="wstr"
+                          length="50"
+                          name="scrapName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Error Output].Columns[scrapReasonId]"
+                          dataType="i2"
+                          lineageId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Error Output].Columns[scrapReasonId]"
+                          name="scrapReasonId" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Error Output].Columns[scrapName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Error Output].Columns[scrapName]"
+                          name="scrapName" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DWH Container\Dim Reason\ReasonDestination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="ReasonDestination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[ReasonDestination]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DWH Container\Dim Reason\ReasonDestination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DWH Container\Dim Reason\ReasonDestination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Reason\ReasonDestination.Inputs[OLE DB Destination Input].Columns[scrapReasonId]"
+                          cachedDataType="i2"
+                          cachedName="scrapReasonId"
+                          externalMetadataColumnId="Package\DWH Container\Dim Reason\ReasonDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapReasonId]"
+                          lineageId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].Columns[scrapReasonId]" />
+                        <inputColumn
+                          refId="Package\DWH Container\Dim Reason\ReasonDestination.Inputs[OLE DB Destination Input].Columns[scrapName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="scrapName"
+                          externalMetadataColumnId="Package\DWH Container\Dim Reason\ReasonDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapName]"
+                          lineageId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output].Columns[scrapName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Reason\ReasonDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapReasonId]"
+                          dataType="i2"
+                          name="scrapReasonId" />
+                        <externalMetadataColumn
+                          refId="Package\DWH Container\Dim Reason\ReasonDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapName]"
+                          dataType="wstr"
+                          length="50"
+                          name="scrapName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DWH Container\Dim Reason\ReasonDestination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DWH Container\Dim Reason\ReasonDestination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Reason\ReasonDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim Reason\ReasonDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DWH Container\Dim Reason\ReasonDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DWH Container\Dim Reason\ReasonDestination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DWH Container\Dim Reason.Paths[OLE DB Source Output]"
+                  endId="Package\DWH Container\Dim Reason\ReasonDestination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DWH Container\Dim Reason\Reason Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\DWH Container\dim WorkOrder"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{58678C3A-B9E6-4E1B-932E-DCD5744A54ED}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -1260,10 +1519,6 @@ FROM            StagingDestination</property>
                           refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[stockedQty]"
                           dataType="i4"
                           name="stockedQty" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\dim WorkOrder\WorkOrderDestination.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
-                          dataType="i4"
-                          name="productId" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1450,7 +1705,6 @@ FROM            StagingDestination</property>
           DTS:refId="Package\DWH Container\Dim_Tempo"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task Tempo"
-          DTS:Disabled="True"
           DTS:DTSID="{59FB408F-F81F-4ACA-951B-8EDB37BE8A65}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -1602,10 +1856,6 @@ FROM            StagingDestination</property>
                           dataType="str"
                           length="15"
                           name="semestre" />
-                        <externalMetadataColumn
-                          refId="Package\DWH Container\Dim_Tempo\DateDestination.Inputs[OLE DB Destination Input].ExternalColumns[workOrderId]"
-                          dataType="i4"
-                          name="workOrderId" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1878,6 +2128,14 @@ FROM            StagingDestination</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\DWH Container\dim WorkOrder" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DWH Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{E933A182-A219-4FFB-8507-23BD0FB984DE}"
+          DTS:From="Package\DWH Container\dim WorkOrder"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\DWH Container\Dim Reason" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -2229,6 +2487,7 @@ FROM            DateDestination INNER JOIN
       DTS:refId="Package\Staging Area Population"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{EB8D434B-B946-4748-BCF8-BF3EAB6F266C}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -2458,6 +2717,19 @@ FROM            DateDestination INNER JOIN
                           cachedName="style"
                           externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[style]"
                           lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[style]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[scrapReasonId]"
+                          cachedDataType="i2"
+                          cachedName="scrapReasonId"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapReasonId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrapReasonId]" />
+                        <inputColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].Columns[scrapName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="scrapName"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapName]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrapName]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -3354,33 +3626,33 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         <NodeLayout
           Size="139,42"
           Id="Package\DWH Container\Dim_Tempo"
-          TopLeft="32,11" />
+          TopLeft="88.6666666666667,14.3333333333333" />
         <EdgeLayout
           Id="Package\DWH Container.PrecedenceConstraints[Constraint]"
-          TopLeft="101.5,53">
+          TopLeft="158.166666666667,56.3333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="46.5,39"
+              EndConnector="-10.1666666666667,35.6666666666667"
               Start="0,0"
-              End="46.5,31.5">
+              End="-10.1666666666667,28.1666666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.5" />
+                    End="0,13.8333333333334" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="4,19.5" />
+                    Point1="0,13.8333333333334"
+                    Point2="0,17.8333333333334"
+                    Point3="-4,17.8333333333334" />
                   <mssgle:LineSegment
-                    End="42.5,19.5" />
+                    End="-6.16666666666669,17.8333333333334" />
                   <mssgle:CubicBezierSegment
-                    Point1="42.5,19.5"
-                    Point2="46.5,19.5"
-                    Point3="46.5,23.5" />
+                    Point1="-6.16666666666669,17.8333333333334"
+                    Point2="-10.1666666666667,17.8333333333334"
+                    Point3="-10.1666666666667,21.8333333333334" />
                   <mssgle:LineSegment
-                    End="46.5,31.5" />
+                    End="-10.1666666666667,28.1666666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3457,13 +3729,39 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DWH Container\Dim Reason"
+          TopLeft="79.7857142857143,319.547619047619" />
+        <EdgeLayout
+          Id="Package\DWH Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="152.892857142857,286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.5476190476192"
+              Start="0,0"
+              End="0,26.0476190476192">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0476190476192" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="47"
           IsExpanded="True"
-          PanelSize="284,341"
-          Size="284,388"
+          PanelSize="284,641"
+          Size="284,688"
           Id="Package\DWH Container"
-          TopLeft="129.888888888889,347.722222222222" />
+          TopLeft="178.460317460318,492.007936507936" />
         <NodeLayout
           Size="154,42"
           Id="Package\Facto\FactoProducao"
@@ -3492,26 +3790,26 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-31.1111111111111,148.722222222222"
+              EndConnector="17.4603174603176,293.007936507936"
               Start="0,0"
-              End="-31.1111111111111,141.222222222222">
+              End="17.4603174603176,285.507936507936">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.3611111111111" />
+                    End="0,142.503968253968" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,70.3611111111111"
-                    Point2="0,74.3611111111111"
-                    Point3="-4,74.3611111111111" />
+                    Point1="0,142.503968253968"
+                    Point2="0,146.503968253968"
+                    Point3="4,146.503968253968" />
                   <mssgle:LineSegment
-                    End="-27.1111111111111,74.3611111111111" />
+                    End="13.4603174603176,146.503968253968" />
                   <mssgle:CubicBezierSegment
-                    Point1="-27.1111111111111,74.3611111111111"
-                    Point2="-31.1111111111111,74.3611111111111"
-                    Point3="-31.1111111111111,78.3611111111111" />
+                    Point1="13.4603174603176,146.503968253968"
+                    Point2="17.4603174603176,146.503968253968"
+                    Point3="17.4603174603176,150.503968253968" />
                   <mssgle:LineSegment
-                    End="-31.1111111111111,141.222222222222" />
+                    End="17.4603174603176,285.507936507936" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3522,18 +3820,30 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="413.888888888889,545.597222222222">
+          TopLeft="462.460317460318,836.007936507936">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="107.138888888889,0"
+              EndConnector="58.5674603174605,-286.535714285714"
               Start="0,0"
-              End="99.6388888888888,0">
+              End="51.0674603174605,-286.535714285714">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="99.6388888888888,0" />
+                    End="25.2837301587302,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.2837301587302,0"
+                    Point2="29.2837301587302,0"
+                    Point3="29.2837301587302,-4" />
+                  <mssgle:LineSegment
+                    End="29.2837301587302,-282.535714285714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.2837301587302,-282.535714285714"
+                    Point2="29.2837301587302,-286.535714285714"
+                    Point3="33.2837301587302,-286.535714285714" />
+                  <mssgle:LineSegment
+                    End="51.0674603174605,-286.535714285714" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3855,7 +4165,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\Facto\FactoProducao">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="161,42"
           Id="Package\Facto\FactoProducao\ProducaoSource"
@@ -3883,7 +4193,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3918,14 +4230,14 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
         <NodeLayout
           Size="165,42"
           Id="Package\Staging Area Population\StagingArea\StagingExtraction"
-          TopLeft="142,75" />
+          TopLeft="142,74" />
         <NodeLayout
           Size="172,62"
           Id="Package\Staging Area Population\StagingArea\StagingDestination"
           TopLeft="437,69" />
         <EdgeLayout
           Id="Package\Staging Area Population\StagingArea.Paths[OLE DB Source Output]"
-          TopLeft="307,98">
+          TopLeft="307,97.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3966,6 +4278,65 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DWH Container\Dim Reason">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DWH Container\Dim Reason\Reason Source"
+          TopLeft="246.75,71.75" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DWH Container\Dim Reason\ReasonDestination"
+          TopLeft="548,75.5" />
+        <EdgeLayout
+          Id="Package\DWH Container\Dim Reason.Paths[OLE DB Source Output]"
+          TopLeft="401.75,94.625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146.25,0"
+              Start="0,0"
+              End="138.75,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="138.75,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Reason\Reason Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Reason\ReasonDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
