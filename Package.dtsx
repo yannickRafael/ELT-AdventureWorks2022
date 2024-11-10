@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="133"
-  DTS:VersionGUID="{A5B81216-4D45-4656-92AE-74DB7A51CC32}">
+  DTS:VersionBuild="138"
+  DTS:VersionGUID="{7BAFE11A-9BC5-444B-A0B1-A5E13EE3356E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2153,6 +2153,12 @@ FROM            StagingDestination</property>
                           cachedName="productId"
                           externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[productId]"
                           lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[productId]" />
+                        <inputColumn
+                          refId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].Columns[scrapReasonId]"
+                          cachedDataType="i2"
+                          cachedName="scrapReasonId"
+                          externalMetadataColumnId="Package\Facto\FactoProducao\factProducao.Inputs[OLE DB Destination Input].ExternalColumns[scrapReasonId]"
+                          lineageId="Package\Facto\FactoProducao\ProducaoSource.Outputs[OLE DB Source Output].Columns[scrapReasonId]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2233,12 +2239,8 @@ FROM            StagingDestination</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        DateDestination.dataId, LocalizacaoDestination.locationId, ProductDestination.productId, ReasonDestination.scrapReasonId, WorkOrderDestination_1.workOrderId
-FROM            WorkOrderDestination AS WorkOrderDestination_1 CROSS JOIN
-                         DateDestination CROSS JOIN
-                         LocalizacaoDestination CROSS JOIN
-                         ProductDestination CROSS JOIN
-                         ReasonDestination</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        locationId, productId, workOrderId, dataId, scrapReasonId
+FROM            StagingDestination</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2264,8 +2266,8 @@ FROM            WorkOrderDestination AS WorkOrderDestination_1 CROSS JOIN
                   <connections>
                     <connection
                       refId="Package\Facto\FactoProducao\ProducaoSource.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[aWDWH_Connection]"
-                      connectionManagerRefId="Package.ConnectionManagers[aWDWH_Connection]"
+                      connectionManagerID="Package.ConnectionManagers[aWStaging_Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[aWStaging_Connection]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3413,6 +3415,10 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           Id="Package\DWH Container\Dim Produto"
           TopLeft="40,167.333333333333" />
         <NodeLayout
+          Size="139,42"
+          Id="Package\DWH Container\Dim Reason"
+          TopLeft="79.7857142857143,319.547619047619" />
+        <NodeLayout
           Size="153,42"
           Id="Package\DWH Container\dim WorkOrder"
           TopLeft="80,244" />
@@ -3522,10 +3528,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\DWH Container\Dim Reason"
-          TopLeft="79.7857142857143,319.547619047619" />
         <EdgeLayout
           Id="Package\DWH Container.PrecedenceConstraints[Constraint 3]"
           TopLeft="152.892857142857,286">
@@ -3686,7 +3688,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\DWH Container\Dim Localização">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="186,42"
           Id="Package\DWH Container\Dim Localização\LocalizacaoExtraction"
@@ -3726,7 +3728,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3757,7 +3761,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\DWH Container\Dim Produto">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="166,42"
           Id="Package\DWH Container\Dim Produto\ProductExtraction"
@@ -3785,7 +3789,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3813,10 +3819,71 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\DWH Container\Dim Reason">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DWH Container\Dim Reason\ReasonDestination"
+          TopLeft="548,75.5" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DWH Container\Dim Reason\Reason Source"
+          TopLeft="246.75,71.75" />
+        <EdgeLayout
+          Id="Package\DWH Container\Dim Reason.Paths[OLE DB Source Output]"
+          TopLeft="401.75,94.625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146.25,0"
+              Start="0,0"
+              End="138.75,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="138.75,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Reason\Reason Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Container\Dim Reason\ReasonDestination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\DWH Container\dim WorkOrder">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="168,42"
           Id="Package\DWH Container\dim WorkOrder\WorkOrderSource"
@@ -3856,7 +3923,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3887,7 +3956,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\DWH Container\Dim_Tempo">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="148,42"
           Id="Package\DWH Container\Dim_Tempo\TempoSource"
@@ -3927,7 +3996,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3958,15 +4029,15 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\Facto\FactoProducao">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Facto\FactoProducao\ProducaoSource"
-          TopLeft="148,45" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="144,42"
           Id="Package\Facto\FactoProducao\factProducao"
           TopLeft="419.5,51.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Facto\FactoProducao\ProducaoSource"
+          TopLeft="148,45" />
         <EdgeLayout
           Id="Package\Facto\FactoProducao.Paths[OLE DB Source Output]"
           TopLeft="309,69.25">
@@ -3986,7 +4057,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="30.93552734375,5,41.1289453125,9.568359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4017,7 +4090,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\Staging Area Population\StagingArea">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="165,42"
           Id="Package\Staging Area Population\StagingArea\StagingExtraction"
@@ -4045,7 +4118,9 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4069,65 +4144,6 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DWH Container\Dim Reason">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="155,42"
-          Id="Package\DWH Container\Dim Reason\Reason Source"
-          TopLeft="246.75,71.75" />
-        <NodeLayout
-          Size="172,42"
-          Id="Package\DWH Container\Dim Reason\ReasonDestination"
-          TopLeft="548,75.5" />
-        <EdgeLayout
-          Id="Package\DWH Container\Dim Reason.Paths[OLE DB Source Output]"
-          TopLeft="401.75,94.625">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="146.25,0"
-              Start="0,0"
-              End="138.75,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="138.75,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim Reason\Reason Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DWH Container\Dim Reason\ReasonDestination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
