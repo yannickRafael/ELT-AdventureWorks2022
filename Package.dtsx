@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="116"
-  DTS:VersionGUID="{6BCF5502-D439-49BF-9933-D0AE4FF2F430}">
+  DTS:VersionBuild="117"
+  DTS:VersionGUID="{83B1ADCB-8ACC-4E11-AAEE-1255A79839B5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2556,6 +2556,15 @@ FROM            DateDestination INNER JOIN
                           dataType="wstr"
                           length="2"
                           name="style" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapReasonId]"
+                          dataType="i2"
+                          name="scrapReasonId" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Area Population\StagingArea\StagingDestination.Inputs[OLE DB Destination Input].ExternalColumns[scrapName]"
+                          dataType="wstr"
+                          length="50"
+                          name="scrapName" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2613,13 +2622,14 @@ FROM            DateDestination INNER JOIN
                          Production.WorkOrder.WorkOrderID AS workOrderId, Production.WorkOrderRouting.OperationSequence AS operationSequence, Production.WorkOrder.ScrappedQty AS scrappedQty, Production.WorkOrder.EndDate AS endDate, 
                          CONVERT(int, Production.WorkOrder.EndDate) AS dataId, Production.WorkOrder.StockedQty AS stockedQty, Production.Product.Color AS color, Production.Product.MakeFlag AS makeFlag, Production.Product.ListPrice AS listPrice, 
                          Production.Product.[Size] AS [size], Production.Product.Weight AS weight, Production.Product.SizeUnitMeasureCode AS sizeUnitMeasureCode, Production.Product.WeightUnitMeasureCode AS weightUnitMeasureCode, 
-                         Production.Product.DaysToManufacture AS daysToManufacture, Production.Product.ProductLine AS productLine, Production.Product.Class AS class, Production.Product.Style AS style, Production.WorkOrder.ScrapReasonID, 
-                         Production.ScrapReason.Name, Production.ScrapReason.ScrapReasonID AS Expr1
+                         Production.Product.DaysToManufacture AS daysToManufacture, Production.Product.ProductLine AS productLine, Production.Product.Class AS class, Production.Product.Style AS style, 
+                         Production.ScrapReason.ScrapReasonID AS scrapReasonId, Production.ScrapReason.Name AS scrapName
 FROM            Production.Product INNER JOIN
                          Production.WorkOrder ON Production.Product.ProductID = Production.WorkOrder.ProductID INNER JOIN
                          Production.WorkOrderRouting ON Production.WorkOrder.WorkOrderID = Production.WorkOrderRouting.WorkOrderID INNER JOIN
                          Production.Location ON Production.WorkOrderRouting.LocationID = Production.Location.LocationID INNER JOIN
-                         Production.ScrapReason ON Production.WorkOrder.ScrapReasonID = Production.ScrapReason.ScrapReasonID
+                         Production.ScrapReason ON Production.WorkOrder.ScrapReasonID = Production.ScrapReason.ScrapReasonID INNER JOIN
+                         Production.ScrapReason AS ScrapReason_1 ON Production.WorkOrder.ScrapReasonID = ScrapReason_1.ScrapReasonID
 WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Location.Name IS NOT NULL) AND (Production.Product.ProductID IS NOT NULL) AND (Production.Product.Name IS NOT NULL) AND 
                          (Production.WorkOrder.WorkOrderID IS NOT NULL) AND (Production.WorkOrderRouting.OperationSequence IS NOT NULL) AND (Production.WorkOrder.ScrappedQty IS NOT NULL) AND 
                          (Production.WorkOrder.EndDate IS NOT NULL) AND (CONVERT(int, Production.WorkOrder.EndDate) IS NOT NULL) AND (Production.WorkOrder.StockedQty IS NOT NULL) AND (Production.Product.Color IS NOT NULL) AND 
@@ -2862,32 +2872,23 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                           name="style"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ScrapReasonID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrapReasonId]"
                           dataType="i2"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ScrapReasonID]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[ScrapReasonID]"
-                          name="ScrapReasonID"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrapReasonId]"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrapReasonId]"
+                          name="scrapReasonId"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrapName]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrapName]"
                           length="50"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Name]"
-                          name="Name"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Expr1]"
-                          dataType="i2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[Expr1]"
-                          name="Expr1"
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].Columns[scrapName]"
+                          name="scrapName"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
@@ -2988,18 +2989,14 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                           length="2"
                           name="style" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[ScrapReasonID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrapReasonId]"
                           dataType="i2"
-                          name="ScrapReasonID" />
+                          name="scrapReasonId" />
                         <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[scrapName]"
                           dataType="wstr"
                           length="50"
-                          name="Name" />
-                        <externalMetadataColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
-                          dataType="i2"
-                          name="Expr1" />
+                          name="scrapName" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -3124,21 +3121,16 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
                           lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[style]"
                           name="style" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ScrapReasonID]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[scrapReasonId]"
                           dataType="i2"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ScrapReasonID]"
-                          name="ScrapReasonID" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[scrapReasonId]"
+                          name="scrapReasonId" />
                         <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[scrapName]"
                           dataType="wstr"
                           length="50"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Name]"
-                          name="Name" />
-                        <outputColumn
-                          refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Expr1]"
-                          dataType="i2"
-                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[Expr1]"
-                          name="Expr1" />
+                          lineageId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[scrapName]"
+                          name="scrapName" />
                         <outputColumn
                           refId="Package\Staging Area Population\StagingArea\StagingExtraction.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -3922,37 +3914,35 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\Staging Area Population\StagingArea">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="165,42"
           Id="Package\Staging Area Population\StagingArea\StagingExtraction"
-          TopLeft="141,76" />
+          TopLeft="142,75" />
         <NodeLayout
           Size="172,62"
           Id="Package\Staging Area Population\StagingArea\StagingDestination"
           TopLeft="437,69" />
         <EdgeLayout
           Id="Package\Staging Area Population\StagingArea.Paths[OLE DB Source Output]"
-          TopLeft="306,98.5">
+          TopLeft="307,98">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="131,0"
+              EndConnector="130,0"
               Start="0,0"
-              End="123.5,0">
+              End="122.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="123.5,0" />
+                    End="122.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
