@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="138"
-  DTS:VersionGUID="{7BAFE11A-9BC5-444B-A0B1-A5E13EE3356E}">
+  DTS:VersionBuild="140"
+  DTS:VersionGUID="{FFF9F811-B51B-44C8-A32D-2B8E7185B485}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3619,26 +3619,26 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.5674603174605,-286.535714285714"
+              EndConnector="58.56746031746,-286.535714285714"
               Start="0,0"
-              End="51.0674603174605,-286.535714285714">
+              End="51.06746031746,-286.535714285714">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="25.2837301587302,0" />
+                    End="25.28373015873,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="25.2837301587302,0"
-                    Point2="29.2837301587302,0"
-                    Point3="29.2837301587302,-4" />
+                    Point1="25.28373015873,0"
+                    Point2="29.28373015873,0"
+                    Point3="29.28373015873,-4" />
                   <mssgle:LineSegment
-                    End="29.2837301587302,-282.535714285714" />
+                    End="29.28373015873,-282.535714285714" />
                   <mssgle:CubicBezierSegment
-                    Point1="29.2837301587302,-282.535714285714"
-                    Point2="29.2837301587302,-286.535714285714"
-                    Point3="33.2837301587302,-286.535714285714" />
+                    Point1="29.28373015873,-282.535714285714"
+                    Point2="29.28373015873,-286.535714285714"
+                    Point3="33.28373015873,-286.535714285714" />
                   <mssgle:LineSegment
-                    End="51.0674603174605,-286.535714285714" />
+                    End="51.06746031746,-286.535714285714" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3653,26 +3653,26 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="91.9484126984127,17.3849206349207"
+              EndConnector="91.9484126984119,17.3849206349211"
               Start="0,0"
-              End="84.4484126984127,17.3849206349207">
+              End="84.4484126984119,17.3849206349211">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="41.9742063492063,0" />
+                    End="41.9742063492059,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="41.9742063492063,0"
-                    Point2="45.9742063492063,0"
-                    Point3="45.9742063492063,4" />
+                    Point1="41.9742063492059,0"
+                    Point2="45.9742063492059,0"
+                    Point3="45.9742063492059,4" />
                   <mssgle:LineSegment
-                    End="45.9742063492063,13.3849206349207" />
+                    End="45.9742063492059,13.3849206349211" />
                   <mssgle:CubicBezierSegment
-                    Point1="45.9742063492063,13.3849206349207"
-                    Point2="45.9742063492063,17.3849206349207"
-                    Point3="49.9742063492063,17.3849206349207" />
+                    Point1="45.9742063492059,13.3849206349211"
+                    Point2="45.9742063492059,17.3849206349211"
+                    Point3="49.9742063492059,17.3849206349211" />
                   <mssgle:LineSegment
-                    End="84.4484126984127,17.3849206349207" />
+                    End="84.4484126984119,17.3849206349211" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4029,7 +4029,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
     design-time-name="Package\Facto\FactoProducao">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="144,42"
           Id="Package\Facto\FactoProducao\factProducao"
@@ -4057,9 +4057,7 @@ WHERE        (Production.Location.LocationID IS NOT NULL) AND (Production.Locati
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="30.93552734375,5,41.1289453125,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
